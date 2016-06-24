@@ -1,0 +1,243 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Nutch Configuration for IIIT-H Modules
+     * Language Identifier
+     * Domain Identifier
+     * Query NER
+     * Query MWE
+     * Query Translation
+     * Query Transliteration
+     * Query Formation
+-->
+
+<configuration>
+<!-- Added for Language Identification - By Srikanth -->
+<property>
+<name>indianlangidentifier.query.strictLangFilter</name>
+<value>true</value>
+<description>If set to true, the lang tag in queries is made compulsory filtering only specific language pages in results</description>
+</property>
+
+<property>
+  <name>lang.ngram.min.length</name>
+  <value>1</value>
+  <description> The minimum size of ngrams to uses to identify
+  language (must be between 1 and lang.ngram.max.length).
+  The larger is the range between lang.ngram.min.length and
+  lang.ngram.max.length, the better is the identification, but
+  the slowest it is.
+  </description>
+</property>
+
+<property>
+  <name>lang.ngram.max.length</name>
+  <value>4</value>
+  <description> The maximum size of ngrams to uses to identify
+  language (must be between lang.ngram.min.length and 4).
+  The larger is the range between lang.ngram.min.length and
+  lang.ngram.max.length, the better is the identification, but
+  the slowest it is.
+  </description>
+</property>
+
+<property>
+  <name>lang.analyze.max.length</name>
+  <value>2048</value>
+  <description> The maximum bytes of data to uses to indentify
+  the language (0 means full content analysis).
+  The larger is this value, the better is the analysis, but the
+  slowest it is.
+  </description>
+</property>
+
+<!-- Added for Domain Identification - By Srikanth -->
+<property>
+<name>resources.domainidentifier.dir</name>
+<value>${CLIA_HOME}/resource/domainidentifier</value>
+</property>
+
+<property>
+<name>domainidentifier.query.strictDomainFilter</name>
+<value>false</value>
+<description>If set to true, the domain tag in queries is made compulsory therely filtering non-domain pages in results</description>
+</property>
+
+<!-- Added for Query NER - By Srikanth -->
+<property>
+<name>resources.query-ner.dir</name>
+<value>${CLIA_HOME}/resource/query-ner</value>
+</property>
+
+<property>
+<name>query-ner.term.fields</name>
+<value>NER,content,title,url,host,anchor</value>
+</property>
+
+<property>
+<name>query-ner.phrase.fields</name>
+<value>NER,content,title</value>
+</property>
+
+<property>
+<name>query-ner.ruleBasedNER.use</name>
+<value>true</value>
+<description>Set to true to use a light weight rule based NER. This works on the observation that the first few words in indian language tourism queries usually are named entities.</description>
+</property>
+
+<property>
+<name>query-ner.ruleBasedNER.languages</name>
+<value>te</value>
+<description>A comma separated list of languages for which the rule based NER should be used</description>
+</property>
+
+<property>
+<name>query-ner.ruleBasedNER.maxWords</name>
+<value>3</value>
+<description>Input to rule based NER</description>
+</property>
+
+<!-- Added for Query MWE - By Srikanth -->
+<property>
+<name>resources.query-mwe.dir</name>
+<value>${CLIA_HOME}/resource/query-mwe</value>
+</property>
+
+<property>
+<name>query-mwe.fields</name>
+<value>MWE,content,title</value>
+</property>
+
+<!-- Query Boost Factors - By Srikanth -->
+
+<property>
+  <name>query.lang.boost</name>
+  <value>1.0</value>
+  <description> Used as a boost for lang field in Lucene query.
+  </description>
+</property>
+
+<property>
+  <name>query.domain.boost</name>
+  <value>1.0</value>
+  <description> Used as a boost for domain field in Lucene query.
+  </description>
+</property>
+
+<property>
+<name>query.ne.boost</name>
+<value>12.0</value>
+</property>
+
+<property>
+<name>query.ne.term.boost</name>
+<value>12.0</value>
+</property>
+
+<property>
+<name>query.ne.phrase.boost</name>
+<value>14.0</value>
+</property>
+
+<property>
+<name>query.ne.ruleBased.boost.factor</name>
+<value>0.5</value>
+<description>Fraction of NE Term and Phrase boosts to be used for rule based NEs</description>
+</property>
+
+<property>
+<name>query.mwe.boost</name>
+<value>12.0</value>
+</property>
+
+<property>
+<name>query.lang.boost</name>
+<value>1.0</value>
+</property>
+
+<property>
+<name>query.domain.boost</name>
+<value>1.0</value>
+</property>
+
+<property>
+  <name>query.url.boost</name>
+  <value>3.0</value>
+  <description> Used as a boost for url field in Lucene query.
+  </description>
+</property>
+
+<property>
+  <name>query.content.boost</name>
+  <value>10.0</value>
+  <description> Used as a boost for content field in Lucene query.
+  </description>
+</property>
+
+
+<property>
+  <name>query.anchor.boost</name>
+  <value>1.0</value>
+  <description> Used as a boost for anchor field in Lucene query.
+  </description>
+</property>
+
+<property>
+  <name>query.title.boost</name>
+  <value>3.0</value>
+  <description> Used as a boost for title field in Lucene query.
+  </description>
+</property>
+
+<property>
+  <name>query.host.boost</name>
+  <value>2.0</value>
+  <description> Used as a boost for host field in Lucene query.
+  </description>
+</property>
+
+<property>
+  <name>query.phrase.boost</name>
+  <value>1.0</value>
+  <description> Used as a boost for phrase in Lucene query.
+  Multiplied by boost for field phrase is matched in.
+  </description>
+</property>
+
+<!-- creative-commons plugin properties [NOT INCLUDED] -->
+
+<property>
+  <name>query.cc.boost</name>
+  <value>0.0</value>
+  <description> Used as a boost for cc field in Lucene query.
+  </description>
+</property>
+
+<!-- query-more plugin properties [NOT INCLUDED] -->
+
+<property>
+  <name>query.type.boost</name>
+  <value>0.0</value>
+  <description> Used as a boost for type field in Lucene query.
+  </description>
+</property>
+
+<!-- query-site plugin properties [NOT INCLUDED] -->
+
+<property>
+  <name>query.site.boost</name>
+  <value>0.0</value>
+  <description> Used as a boost for site field in Lucene query.
+  </description>
+</property>
+
+<!-- microformats-reltag plugin properties [NOT INCLUDED] -->
+
+<property>
+  <name>query.tag.boost</name>
+  <value>1.0</value>
+  <description> Used as a boost for tag field in Lucene query.
+  </description>
+</property>
+
+</configuration>

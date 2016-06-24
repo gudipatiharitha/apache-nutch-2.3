@@ -1,0 +1,31 @@
+﻿verb+tense+png=				30
+verb+tense+aux1+png=			26
+verb+tense+aux1+aux2+png=			494
+verb+tense+aux1+aux2+aux3+png=		10051
+verb+tense+aux1+aux2+aux3+aux4+png=
+
+
+verb+உம்+பெயரெச்ச பின்னொட்டு=		9
+verb+இறந்தகாலம்+நிபந்தனை விகுதி =		1
+verb+எச்சம்+ஈற்றசை=			21
+verb+எச்சம்+நிலை+png/தொ.பெ.விகுதி/வே.உருபு=	376
+
+ism/ipm= 					12
+வினை+எச்சம்+செ.பாட்டு+காலம¢+png= 		30
+வினை+எச்சம்+செ.பாட்டு+காலம்+/தொ.பெ.விகுதி/வே.உருபு=21
+
+வினை+காலம்+பெயரெச்சம்+தொ.பெ=		21
+வினை+காலம்+பெயரெச்சம்+பெ.பின்னொட்டு=	88
+வினை+எச்சம்+எதிர்மறை=			3
+
+noun 
+n+casemarker=				13
+n+pl=					1
+n+cm+pp=				50
+
+according to eight rules 670 clitic combinations are generated 
+
+
+
+
+

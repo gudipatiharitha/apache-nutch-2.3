@@ -1,0 +1,177 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+
+<property>
+	<name>CLIA_HOME</name>
+	<value>/home/dejucoder/Downloads/apache-nutch-2.3</value>
+	<description>Absolute path to the CLIA system</description>
+</property>
+
+<property>
+  <name>http.agent.name</name>
+  <value>clia</value>
+  <description>HTTP 'User-Agent' request header. MUST NOT be empty - 
+  please set this to a single word uniquely related to your organization.
+
+  NOTE: You should also check other related properties:
+
+	http.robots.agents
+	http.agent.description
+	http.agent.url
+	http.agent.email
+	http.agent.version
+
+  and set their values appropriately.
+
+  </description>
+</property>
+
+
+<property>
+<name>plugin.folders</name>
+<value>${CLIA_HOME}/build/plugins</value>
+</property>
+
+<property>
+  <name>plugin.includes</name>
+  <value>protocol-(http|httpclient)|urlfilter-regex|parse-cml|index-cml|indexer-solr|scoring-(opic|content)|urlnormalizer-(pass|regex|basic)|indianlangidentifier|domainidentifier</value>
+  <description>Regular expression naming plugin directory names to
+  include.  Any plugin not matching this expression is excluded.
+  In any case you need at least include the nutch-extensionpoints plugin. By
+  default Nutch includes crawling just HTML and plain text via HTTP,
+  and basic indexing and search plugins. In order to use HTTPS please enable 
+  protocol-httpclient, but be aware of possible intermittent problems with the 
+  underlying commons-httpclient library.
+  </description>
+</property>
+
+<property>
+  <name>parser.character.encoding.default</name>
+  <value>utf-8</value>
+  <description>The character encoding to fall back to when no other information
+  is available</description>
+</property>
+
+<property>
+  <name>parser.html.impl</name>
+  <value>tagsoup</value>
+  <description>HTML Parser implementation. Currently the following keywords
+  are recognized: "neko" uses NekoHTML, "tagsoup" uses TagSoup.
+  </description>
+</property>
+
+<property>
+<name>NER</name>
+<value>${CLIA_HOME}/resource/query-ner/</value>
+</property>
+
+<property>
+<name>MWE</name>
+<value>${CLIA_HOME}/resource/query-mwe/</value>
+</property>
+
+<property>
+<name>Font_Transcoder_Dir</name>
+<value>${CLIA_HOME}/resource/FontTranscoder</value>
+</property>
+
+<property>
+<name>resources.indianlangidentifier.dir</name>
+<value>${CLIA_HOME}/resource/indianlangidentifier</value>
+</property>
+
+<property>
+<name>resources.domainidentifier.dir</name>
+<value>${CLIA_HOME}/resource/domainidentifier</value>
+</property>
+
+<property>
+  <name>db.default.fetch.interval</name>
+  <value>1</value>
+  <description>(DEPRECATED) The default number of days between re-fetches of a page.
+  </description>
+</property>
+
+<property>
+  <name>db.fetch.interval.default</name>
+  <value>900</value>
+  <description>The default number of seconds between re-fetches of a page (30 days).
+  </description>
+</property>
+
+<property>
+  <name>db.fetch.interval.max</name>
+  <value>3600</value>
+  <description>The maximum number of seconds between re-fetches of a page
+  (90 days). After this period every page in the db will be re-tried, no
+  matter what is its status.
+  </description>
+</property>
+
+<property>
+  <name>db.fetch.schedule.class</name>
+  <value>org.apache.nutch.crawl.AdaptiveFetchSchedule</value>
+  <description>The implementation of fetch schedule. DefaultFetchSchedule simply
+  adds the original fetchInterval to the last fetch time, regardless of
+  page changes.</description>
+</property>
+
+<property>
+  <name>http.content.limit</name>
+  <value>-1</value>
+  <description>The length limit for downloaded content using the http://
+  protocol, in bytes. If this value is nonnegative (>=0), content longer
+  than it will be truncated; otherwise, no truncation at all. Do not
+  confuse this setting with the file.content.limit setting.
+  </description>
+</property>
+
+<property>
+  <name>db.max.anchor.length</name>
+  <value>1000</value>
+  <description>The maximum number of characters permitted in an anchor.
+  </description>
+</property>
+
+<property>
+  <name>db.max.outlinks.per.page</name>
+  <value>-1</value>
+  <description>The maximum number of outlinks that we'll process for a page.
+  If this value is nonnegative (>=0), at most db.max.outlinks.per.page outlinks
+  will be processed for a page; otherwise, all outlinks will be processed.
+  </description>
+</property>
+
+<property>
+  <name>indexer.max.title.length</name>
+  <value>10000</value>
+  <description>The maximum number of characters of a title that are indexed.
+  </description>
+</property>
+
+<property>
+  <name>parser.character.encoding.default</name>
+  <value>utf-8</value>
+  <description>The character encoding to fall back to when no other information
+  is available</description>
+</property>
+
+<property>
+  <name>db.fetch.schedule.class</name>
+  <value>org.apache.nutch.crawl.AdaptiveFetchSchedule</value>
+  <description>The implementation of fetch schedule. DefaultFetchSchedule simply
+  adds the original fetchInterval to the last fetch time, regardless of
+  page changes.</description>
+</property>
+
+<property>
+    <name>storage.data.store.class</name>
+    <value>org.apache.gora.hbase.store.HBaseStore</value>
+    <description>Default class for storing data</description>
+  </property>
+
+</configuration>

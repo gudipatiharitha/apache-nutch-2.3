@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<project name="index-unl" default="jar">
+
+  <import file="../../../build-lang-plugin.xml"/>
+
+<target name="deps-jar">
+    <ant target="deploy" inheritall="false" dir="../../../nutch-extensionpoints"/>
+  </target>
+
+</project>
+

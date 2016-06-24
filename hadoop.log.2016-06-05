@@ -1,0 +1,558 @@
+2016-06-05 06:25:49,857 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-05 06:25:49
+2016-06-05 06:25:49,868 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-05 06:25:51,944 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 06:25:51,952 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 06:25:53,263 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-05 06:25:53,264 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-05 06:25:53,264 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-05 06:25:53,569 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 06:25:54,324 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-05 06:25:54, time elapsed: 00:00:04
+2016-06-05 06:30:03,754 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-05 06:30:03
+2016-06-05 06:30:03,755 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-05 06:30:06,724 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 06:30:06,734 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 06:30:09,241 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-05 06:30:09,242 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-05 06:30:09,242 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-05 06:30:12,626 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 06:30:13,286 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-05 06:30:13, time elapsed: 00:00:09
+2016-06-05 06:31:04,235 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 06:31:04,720 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 06:31:06,154 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 06:31:06,162 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 06:31:07,131 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 06:31:07,131 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 06:31:07,132 WARN  mapred.LocalJobRunner - job_local1964799997_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 06:31:07,583 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local1964799997_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 08:22:13,053 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-05 08:22:13
+2016-06-05 08:22:13,069 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-05 08:22:14,759 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:22:14,766 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:22:15,787 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-05 08:22:15,788 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-05 08:22:15,788 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-05 08:22:15,951 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:22:16,079 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-05 08:22:16, time elapsed: 00:00:03
+2016-06-05 08:23:24,104 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 08:23:24,532 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 08:23:25,580 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:23:25,587 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:23:26,299 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 08:23:26,300 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:23:26,301 WARN  mapred.LocalJobRunner - job_local596346774_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 08:23:26,949 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local596346774_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 08:30:00,147 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 08:30:00,638 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 08:30:02,041 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:30:02,049 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:30:02,830 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 08:30:02,831 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:30:02,832 WARN  mapred.LocalJobRunner - job_local291374696_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 08:30:03,456 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local291374696_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 08:37:31,450 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 08:37:32,275 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 08:37:34,684 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:37:34,705 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:37:36,372 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 08:37:36,390 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:37:36,392 WARN  mapred.LocalJobRunner - job_local191198985_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 08:37:36,518 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local191198985_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 08:38:43,725 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 08:38:45,534 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 08:38:50,420 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:38:50,471 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:38:52,751 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 08:38:52,752 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:38:52,754 WARN  mapred.LocalJobRunner - job_local97557174_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 08:38:53,332 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local97557174_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 08:39:38,411 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 08:39:39,766 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 08:39:42,863 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:39:42,882 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:39:44,483 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 08:39:44,484 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:39:44,485 WARN  mapred.LocalJobRunner - job_local103665887_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 08:39:44,778 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local103665887_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 08:40:55,626 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 08:40:56,415 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 08:40:58,583 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:40:58,603 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:40:59,921 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 08:40:59,922 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:40:59,923 WARN  mapred.LocalJobRunner - job_local801839622_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 08:41:00,314 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local801839622_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 08:49:42,150 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-05 08:49:42
+2016-06-05 08:49:42,178 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-05 08:49:45,530 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 08:49:45,544 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 08:49:48,160 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-05 08:49:48,184 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-05 08:49:48,184 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-05 08:49:50,901 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 08:49:51,283 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-05 08:49:51, time elapsed: 00:00:09
+2016-06-05 21:10:00,348 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-05 21:10:00
+2016-06-05 21:10:00,355 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-05 21:10:02,116 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 21:10:02,123 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 21:10:03,216 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-05 21:10:03,217 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-05 21:10:03,217 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-05 21:10:03,368 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 21:10:03,447 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-05 21:10:03, time elapsed: 00:00:03
+2016-06-05 21:10:36,556 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 21:10:36,990 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 21:10:38,186 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 21:10:38,195 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 21:10:38,992 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 21:10:38,993 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 21:10:38,994 WARN  mapred.LocalJobRunner - job_local956239824_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 21:10:39,537 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local956239824_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 21:17:03,232 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-06-05 21:17:03,676 INFO  indexer.IndexingFilters - Adding org.apache.nutch.parse.cml.CmlIndexer
+2016-06-05 21:17:04,935 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 21:17:04,947 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 21:17:05,784 ERROR solr.SolrIndexWriter - Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+2016-06-05 21:17:05,784 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 21:17:05,785 WARN  mapred.LocalJobRunner - job_local411968348_0001
+java.lang.Exception: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.RuntimeException: Missing SOLR URL. Should be set via -D solr.server.url
+SOLRIndexWriter
+	solr.server.url : URL of the SOLR instance (mandatory)
+	solr.commit.size : buffer size when sending to SOLR (default 1000)
+	solr.mapping.file : name of the mapping file for fields (default solrindex-mapping.xml)
+	solr.auth : use authentication (default false)
+	solr.auth.username : username for authentication
+	solr.auth.password : password for authentication
+
+	at org.apache.nutch.indexwriter.solr.SolrIndexWriter.setConf(SolrIndexWriter.java:122)
+	at org.apache.nutch.plugin.Extension.getExtensionInstance(Extension.java:163)
+	at org.apache.nutch.indexer.IndexWriters.<init>(IndexWriters.java:54)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:36)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-05 21:17:06,333 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local411968348_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:54)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:154)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:176)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:202)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:211)
+
+2016-06-05 22:10:59,215 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-05 22:10:59
+2016-06-05 22:10:59,245 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-05 22:11:01,517 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 22:11:01,534 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 22:11:03,180 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-05 22:11:03,181 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-05 22:11:03,181 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-05 22:11:05,139 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 22:11:05,910 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-05 22:11:05, time elapsed: 00:00:06
+2016-06-05 22:59:06,830 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-05 22:59:06
+2016-06-05 22:59:06,832 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-05 22:59:10,236 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-05 22:59:10,253 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-05 22:59:15,473 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-05 22:59:15,476 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-05 22:59:15,476 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-05 22:59:26,607 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-05 22:59:26,940 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-05 22:59:26, time elapsed: 00:00:20

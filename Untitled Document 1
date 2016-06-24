@@ -1,0 +1,14 @@
+
+
+
+1.) conf/parse-plugins.xml
+2.) src/plugin/horizontal/offline/parse-cml/src/java/org/iitkgp/cel/parse/html/CmlParser.java -:
+	a.) change in boilerplate code (line 264 , original code commented)
+	b.) change in outlinks url, convert https to http(line 351 , original code commented)
+	c.) change in set metadata, Utf8 encoding of string must be used in place of simple string(line 522 , original code commented)
+3.) src/plugin/horizontal/offline/index-cml/src/java/org/apache/nutch/parse/cml/CmlIndexer.java
+	a.) change in definition of override filter method due to difference in functionality of nutch 2.3 and nutch 1.4 ->
+	NUTCH 2.3 - public NutchDocument filter(NutchDocument doc,String url,
+			WebPage page) throws IndexingException
+	NUTCH 1.4 - public NutchDocument filter(NutchDocument doc, Parse parse, Text url,CrawlDatum datum, Inlinks inlinks) throws IndexingException 
+	b.) change in get metadata, Utf8 encoding of string must be used in place of simple string analogous to change(c) in parse-cml(line 74 , original code commented)

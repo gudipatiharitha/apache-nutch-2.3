@@ -1,0 +1,20 @@
+﻿N+Plural
+பூ
+செடி
+மரம்
+நாள்
+அம்மா
+N+Case marker,N+CM+PP,N+Clitic+N+Pl+Clitic,N+Pl+CM+PP or all combinations
+அழகு 
+கருப்பு 
+குரு
+மது
+தன்
+பஞ்சு
+வீடு
+மடு
+குழம்பு
+சோறு
+படிப்பு
+காற்று
+பாட்டு

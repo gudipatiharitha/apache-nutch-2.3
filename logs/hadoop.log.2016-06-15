@@ -1,0 +1,507 @@
+2016-06-15 01:39:13,109 INFO  crawl.InjectorJob - InjectorJob: starting at 2016-06-15 01:39:12
+2016-06-15 01:39:13,132 INFO  crawl.InjectorJob - InjectorJob: Injecting urlDir: /home/dejucoder/seed
+2016-06-15 01:39:16,008 INFO  crawl.InjectorJob - InjectorJob: Using class org.apache.gora.hbase.store.HBaseStore as the Gora storage class.
+2016-06-15 01:39:16,078 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 01:39:16,086 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 01:39:16,104 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2016-06-15 01:39:16,948 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2016-06-15 01:39:17,118 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 01:39:17,365 INFO  crawl.InjectorJob - InjectorJob: total number of urls rejected by filters: 0
+2016-06-15 01:39:17,365 INFO  crawl.InjectorJob - InjectorJob: total number of urls injected after normalization and filtering: 1
+2016-06-15 01:39:17,366 INFO  crawl.InjectorJob - Injector: finished at 2016-06-15 01:39:17, elapsed: 00:00:04
+2016-06-15 01:39:24,414 INFO  crawl.GeneratorJob - GeneratorJob: starting at 2016-06-15 01:39:24
+2016-06-15 01:39:24,416 INFO  crawl.GeneratorJob - GeneratorJob: Selecting best-scoring urls due for fetch.
+2016-06-15 01:39:24,416 INFO  crawl.GeneratorJob - GeneratorJob: starting
+2016-06-15 01:39:24,416 INFO  crawl.GeneratorJob - GeneratorJob: filtering: true
+2016-06-15 01:39:24,416 INFO  crawl.GeneratorJob - GeneratorJob: normalizing: true
+2016-06-15 01:39:24,644 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-15 01:39:24,646 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-15 01:39:24,646 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-15 01:39:26,084 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 01:39:26,093 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 01:39:27,237 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-15 01:39:27,237 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-15 01:39:27,237 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-15 01:39:27,304 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2016-06-15 01:39:27,546 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 01:39:28,516 INFO  crawl.GeneratorJob - GeneratorJob: finished at 2016-06-15 01:39:28, time elapsed: 00:00:04
+2016-06-15 01:39:28,517 INFO  crawl.GeneratorJob - GeneratorJob: generated batch id: 1 containing 1 URLs
+2016-06-15 01:39:56,725 INFO  fetcher.FetcherJob - FetcherJob: starting at 2016-06-15 01:39:56
+2016-06-15 01:39:56,726 INFO  fetcher.FetcherJob - FetcherJob: fetching all
+2016-06-15 01:39:56,728 INFO  fetcher.FetcherJob - FetcherJob: threads: 10
+2016-06-15 01:39:56,729 INFO  fetcher.FetcherJob - FetcherJob: parsing: false
+2016-06-15 01:39:56,729 INFO  fetcher.FetcherJob - FetcherJob: resuming: false
+2016-06-15 01:39:56,729 INFO  fetcher.FetcherJob - FetcherJob : timelimit set for : -1
+2016-06-15 01:39:57,832 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 01:39:57,832 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 01:39:57,832 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 01:39:57,832 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 01:39:57,832 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:39:57,832 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:39:57,832 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:39:57,844 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 01:39:57,844 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 01:39:57,852 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 01:39:57,852 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 01:39:57,852 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:39:57,852 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:39:57,852 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:39:57,859 INFO  http.Http - http.proxy.host = null
+2016-06-15 01:39:57,859 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 01:39:57,859 INFO  http.Http - http.timeout = 10000
+2016-06-15 01:39:57,859 INFO  http.Http - http.content.limit = -1
+2016-06-15 01:39:57,859 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:39:57,859 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:39:57,859 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:39:57,865 INFO  http.Http - http.proxy.host = null
+2016-06-15 01:39:57,865 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 01:39:57,865 INFO  http.Http - http.timeout = 10000
+2016-06-15 01:39:57,865 INFO  http.Http - http.content.limit = -1
+2016-06-15 01:39:57,865 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:39:57,865 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:39:57,865 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:39:59,560 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 01:39:59,572 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 01:40:00,895 INFO  fetcher.FetcherJob - Using queue mode : byHost
+2016-06-15 01:40:00,895 INFO  fetcher.FetcherJob - Fetcher: threads: 10
+2016-06-15 01:40:00,927 INFO  fetcher.FetcherJob - QueueFeeder finished: total 1 records. Hit by time limit :0
+2016-06-15 01:40:00,948 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/ (queue crawl delay=5000ms)
+2016-06-15 01:40:00,960 INFO  fetcher.FetcherJob - Fetcher: throughput threshold: -1
+2016-06-15 01:40:00,961 INFO  fetcher.FetcherJob - Fetcher: throughput threshold sequence: 5
+2016-06-15 01:40:00,970 INFO  fetcher.FetcherJob - -finishing thread FetcherThread1, activeThreads=6
+2016-06-15 01:40:00,974 INFO  fetcher.FetcherJob - -finishing thread FetcherThread6, activeThreads=6
+2016-06-15 01:40:00,974 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 01:40:00,974 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 01:40:00,974 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 01:40:00,974 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 01:40:00,975 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:40:00,975 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:40:00,975 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:40:00,980 INFO  fetcher.FetcherJob - -finishing thread FetcherThread7, activeThreads=6
+2016-06-15 01:40:00,980 INFO  fetcher.FetcherJob - -finishing thread FetcherThread4, activeThreads=5
+2016-06-15 01:40:00,981 INFO  fetcher.FetcherJob - -finishing thread FetcherThread3, activeThreads=4
+2016-06-15 01:40:00,988 INFO  fetcher.FetcherJob - -finishing thread FetcherThread2, activeThreads=3
+2016-06-15 01:40:00,988 INFO  fetcher.FetcherJob - -finishing thread FetcherThread8, activeThreads=3
+2016-06-15 01:40:00,989 INFO  fetcher.FetcherJob - -finishing thread FetcherThread9, activeThreads=2
+2016-06-15 01:40:00,989 INFO  fetcher.FetcherJob - -finishing thread FetcherThread5, activeThreads=1
+2016-06-15 01:40:01,795 INFO  api.HttpRobotRulesParser - Couldn't get robots.txt for https://www.kaggle.com/: java.net.UnknownHostException: www.kaggle.com
+2016-06-15 01:40:01,801 ERROR httpclient.Http - Failed with the following error: 
+java.net.UnknownHostException: www.kaggle.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:668)
+	at sun.security.ssl.SSLSocketImpl.<init>(SSLSocketImpl.java:472)
+	at sun.security.ssl.SSLSocketFactoryImpl.createSocket(SSLSocketFactoryImpl.java:153)
+	at org.apache.commons.httpclient.protocol.SSLProtocolSocketFactory.createSocket(SSLProtocolSocketFactory.java:82)
+	at org.apache.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at org.apache.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-15 01:40:01,818 WARN  fetcher.FetcherJob - fetch of https://www.kaggle.com/ failed with: java.net.UnknownHostException: www.kaggle.com
+2016-06-15 01:40:01,827 INFO  fetcher.FetcherJob - -finishing thread FetcherThread0, activeThreads=0
+2016-06-15 01:40:05,961 INFO  fetcher.FetcherJob - 0/0 spinwaiting/active, 1 pages, 1 errors, 0.2 0 pages/s, 0 0 kb/s, 0 URLs in 0 queues
+2016-06-15 01:40:05,961 INFO  fetcher.FetcherJob - -activeThreads=0
+2016-06-15 01:40:05,970 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 01:40:06,019 INFO  fetcher.FetcherJob - FetcherJob: finished at 2016-06-15 01:40:06, time elapsed: 00:00:09
+2016-06-15 01:40:10,040 INFO  fetcher.FetcherJob - FetcherJob: starting at 2016-06-15 01:40:10
+2016-06-15 01:40:10,041 INFO  fetcher.FetcherJob - FetcherJob: fetching all
+2016-06-15 01:40:10,043 INFO  fetcher.FetcherJob - FetcherJob: threads: 10
+2016-06-15 01:40:10,043 INFO  fetcher.FetcherJob - FetcherJob: parsing: false
+2016-06-15 01:40:10,043 INFO  fetcher.FetcherJob - FetcherJob: resuming: false
+2016-06-15 01:40:10,043 INFO  fetcher.FetcherJob - FetcherJob : timelimit set for : -1
+2016-06-15 01:40:11,132 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 01:40:11,132 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 01:40:11,132 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 01:40:11,133 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 01:40:11,133 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:40:11,133 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:40:11,133 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:40:11,145 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 01:40:11,145 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 01:40:11,153 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 01:40:11,153 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 01:40:11,153 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:40:11,153 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:40:11,153 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:40:11,161 INFO  http.Http - http.proxy.host = null
+2016-06-15 01:40:11,161 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 01:40:11,161 INFO  http.Http - http.timeout = 10000
+2016-06-15 01:40:11,161 INFO  http.Http - http.content.limit = -1
+2016-06-15 01:40:11,161 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:40:11,162 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:40:11,162 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:40:11,168 INFO  http.Http - http.proxy.host = null
+2016-06-15 01:40:11,168 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 01:40:11,168 INFO  http.Http - http.timeout = 10000
+2016-06-15 01:40:11,168 INFO  http.Http - http.content.limit = -1
+2016-06-15 01:40:11,168 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:40:11,168 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:40:11,168 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:40:12,537 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 01:40:12,545 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 01:40:13,707 INFO  fetcher.FetcherJob - Using queue mode : byHost
+2016-06-15 01:40:13,707 INFO  fetcher.FetcherJob - Fetcher: threads: 10
+2016-06-15 01:40:13,720 INFO  fetcher.FetcherJob - QueueFeeder finished: total 1 records. Hit by time limit :0
+2016-06-15 01:40:13,747 INFO  fetcher.FetcherJob - Fetcher: throughput threshold: -1
+2016-06-15 01:40:13,747 INFO  fetcher.FetcherJob - Fetcher: throughput threshold sequence: 5
+2016-06-15 01:40:13,749 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/ (queue crawl delay=5000ms)
+2016-06-15 01:40:13,750 INFO  fetcher.FetcherJob - -finishing thread FetcherThread1, activeThreads=7
+2016-06-15 01:40:13,750 INFO  fetcher.FetcherJob - -finishing thread FetcherThread7, activeThreads=7
+2016-06-15 01:40:13,757 INFO  fetcher.FetcherJob - -finishing thread FetcherThread2, activeThreads=2
+2016-06-15 01:40:13,757 INFO  fetcher.FetcherJob - -finishing thread FetcherThread3, activeThreads=3
+2016-06-15 01:40:13,757 INFO  fetcher.FetcherJob - -finishing thread FetcherThread4, activeThreads=4
+2016-06-15 01:40:13,757 INFO  fetcher.FetcherJob - -finishing thread FetcherThread5, activeThreads=5
+2016-06-15 01:40:13,757 INFO  fetcher.FetcherJob - -finishing thread FetcherThread6, activeThreads=6
+2016-06-15 01:40:13,756 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 01:40:13,762 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 01:40:13,762 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 01:40:13,762 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 01:40:13,762 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 01:40:13,762 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 01:40:13,762 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 01:40:13,761 INFO  fetcher.FetcherJob - -finishing thread FetcherThread8, activeThreads=1
+2016-06-15 01:40:13,761 INFO  fetcher.FetcherJob - -finishing thread FetcherThread9, activeThreads=2
+2016-06-15 01:40:14,424 INFO  api.HttpRobotRulesParser - Couldn't get robots.txt for https://www.kaggle.com/: java.net.UnknownHostException: www.kaggle.com
+2016-06-15 01:40:14,431 ERROR httpclient.Http - Failed with the following error: 
+java.net.UnknownHostException: www.kaggle.com
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:184)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:668)
+	at sun.security.ssl.SSLSocketImpl.<init>(SSLSocketImpl.java:472)
+	at sun.security.ssl.SSLSocketFactoryImpl.createSocket(SSLSocketFactoryImpl.java:153)
+	at org.apache.commons.httpclient.protocol.SSLProtocolSocketFactory.createSocket(SSLProtocolSocketFactory.java:82)
+	at org.apache.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at org.apache.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:745)
+2016-06-15 01:40:14,446 WARN  fetcher.FetcherJob - fetch of https://www.kaggle.com/ failed with: java.net.UnknownHostException: www.kaggle.com
+2016-06-15 01:40:14,450 INFO  fetcher.FetcherJob - -finishing thread FetcherThread0, activeThreads=0
+2016-06-15 01:40:18,747 INFO  fetcher.FetcherJob - 0/0 spinwaiting/active, 1 pages, 1 errors, 0.2 0 pages/s, 0 0 kb/s, 0 URLs in 0 queues
+2016-06-15 01:40:18,748 INFO  fetcher.FetcherJob - -activeThreads=0
+2016-06-15 01:40:18,755 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 01:40:18,921 INFO  fetcher.FetcherJob - FetcherJob: finished at 2016-06-15 01:40:18, time elapsed: 00:00:08
+2016-06-15 02:25:43,749 INFO  crawl.InjectorJob - InjectorJob: starting at 2016-06-15 02:25:43
+2016-06-15 02:25:43,784 INFO  crawl.InjectorJob - InjectorJob: Injecting urlDir: /home/dejucoder/seed
+2016-06-15 02:25:48,012 INFO  crawl.InjectorJob - InjectorJob: Using class org.apache.gora.hbase.store.HBaseStore as the Gora storage class.
+2016-06-15 02:25:48,165 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 02:25:48,179 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 02:25:48,201 WARN  snappy.LoadSnappy - Snappy native library not loaded
+2016-06-15 02:25:48,982 INFO  regex.RegexURLNormalizer - can't find rules for scope 'inject', using default
+2016-06-15 02:25:49,117 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 02:25:49,475 INFO  crawl.InjectorJob - InjectorJob: total number of urls rejected by filters: 0
+2016-06-15 02:25:49,475 INFO  crawl.InjectorJob - InjectorJob: total number of urls injected after normalization and filtering: 1
+2016-06-15 02:25:49,476 INFO  crawl.InjectorJob - Injector: finished at 2016-06-15 02:25:49, elapsed: 00:00:05
+2016-06-15 02:25:52,557 INFO  crawl.GeneratorJob - GeneratorJob: starting at 2016-06-15 02:25:52
+2016-06-15 02:25:52,559 INFO  crawl.GeneratorJob - GeneratorJob: Selecting best-scoring urls due for fetch.
+2016-06-15 02:25:52,559 INFO  crawl.GeneratorJob - GeneratorJob: starting
+2016-06-15 02:25:52,559 INFO  crawl.GeneratorJob - GeneratorJob: filtering: true
+2016-06-15 02:25:52,559 INFO  crawl.GeneratorJob - GeneratorJob: normalizing: true
+2016-06-15 02:25:52,783 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-15 02:25:52,783 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-15 02:25:52,784 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-15 02:25:54,074 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 02:25:54,085 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 02:25:55,125 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-15 02:25:55,125 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-15 02:25:55,125 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-15 02:25:55,204 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2016-06-15 02:25:55,515 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 02:25:56,450 INFO  crawl.GeneratorJob - GeneratorJob: finished at 2016-06-15 02:25:56, time elapsed: 00:00:03
+2016-06-15 02:25:56,450 INFO  crawl.GeneratorJob - GeneratorJob: generated batch id: 1 containing 1 URLs
+2016-06-15 02:25:59,311 INFO  fetcher.FetcherJob - FetcherJob: starting at 2016-06-15 02:25:59
+2016-06-15 02:25:59,313 INFO  fetcher.FetcherJob - FetcherJob: fetching all
+2016-06-15 02:25:59,315 INFO  fetcher.FetcherJob - FetcherJob: threads: 10
+2016-06-15 02:25:59,315 INFO  fetcher.FetcherJob - FetcherJob: parsing: false
+2016-06-15 02:25:59,315 INFO  fetcher.FetcherJob - FetcherJob: resuming: false
+2016-06-15 02:25:59,316 INFO  fetcher.FetcherJob - FetcherJob : timelimit set for : -1
+2016-06-15 02:26:00,392 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 02:26:00,393 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 02:26:00,393 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 02:26:00,393 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 02:26:00,393 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:26:00,393 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:26:00,393 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:26:00,404 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 02:26:00,404 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 02:26:00,412 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 02:26:00,412 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 02:26:00,412 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:26:00,412 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:26:00,412 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:26:00,420 INFO  http.Http - http.proxy.host = null
+2016-06-15 02:26:00,420 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 02:26:00,420 INFO  http.Http - http.timeout = 10000
+2016-06-15 02:26:00,420 INFO  http.Http - http.content.limit = -1
+2016-06-15 02:26:00,420 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:26:00,420 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:26:00,420 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:26:00,426 INFO  http.Http - http.proxy.host = null
+2016-06-15 02:26:00,426 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 02:26:00,426 INFO  http.Http - http.timeout = 10000
+2016-06-15 02:26:00,426 INFO  http.Http - http.content.limit = -1
+2016-06-15 02:26:00,426 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:26:00,426 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:26:00,426 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:26:01,681 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 02:26:01,691 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 02:26:03,469 INFO  fetcher.FetcherJob - Using queue mode : byHost
+2016-06-15 02:26:03,470 INFO  fetcher.FetcherJob - Fetcher: threads: 10
+2016-06-15 02:26:03,483 INFO  fetcher.FetcherJob - QueueFeeder finished: total 1 records. Hit by time limit :0
+2016-06-15 02:26:03,496 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/ (queue crawl delay=5000ms)
+2016-06-15 02:26:03,502 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 02:26:03,502 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 02:26:03,502 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 02:26:03,502 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 02:26:03,502 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:26:03,502 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:26:03,502 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:26:03,514 INFO  fetcher.FetcherJob - Fetcher: throughput threshold: -1
+2016-06-15 02:26:03,514 INFO  fetcher.FetcherJob - Fetcher: throughput threshold sequence: 5
+2016-06-15 02:26:03,525 INFO  fetcher.FetcherJob - -finishing thread FetcherThread1, activeThreads=9
+2016-06-15 02:26:03,526 INFO  fetcher.FetcherJob - -finishing thread FetcherThread2, activeThreads=8
+2016-06-15 02:26:03,526 INFO  fetcher.FetcherJob - -finishing thread FetcherThread9, activeThreads=7
+2016-06-15 02:26:03,526 INFO  fetcher.FetcherJob - -finishing thread FetcherThread8, activeThreads=6
+2016-06-15 02:26:03,531 INFO  fetcher.FetcherJob - -finishing thread FetcherThread7, activeThreads=4
+2016-06-15 02:26:03,531 INFO  fetcher.FetcherJob - -finishing thread FetcherThread4, activeThreads=3
+2016-06-15 02:26:03,532 INFO  fetcher.FetcherJob - -finishing thread FetcherThread5, activeThreads=2
+2016-06-15 02:26:03,532 INFO  fetcher.FetcherJob - -finishing thread FetcherThread6, activeThreads=5
+2016-06-15 02:26:03,532 INFO  fetcher.FetcherJob - -finishing thread FetcherThread3, activeThreads=1
+2016-06-15 02:26:08,514 INFO  fetcher.FetcherJob - 0/1 spinwaiting/active, 1 pages, 0 errors, 0.2 0 pages/s, 17 17 kb/s, 0 URLs in 1 queues
+2016-06-15 02:26:08,537 INFO  fetcher.FetcherJob - -finishing thread FetcherThread0, activeThreads=0
+2016-06-15 02:26:11,387 INFO  parse.ParserJob - ParserJob: starting at 2016-06-15 02:26:11
+2016-06-15 02:26:11,390 INFO  parse.ParserJob - ParserJob: resuming:	false
+2016-06-15 02:26:11,391 INFO  parse.ParserJob - ParserJob: forced reparse:	false
+2016-06-15 02:26:11,391 INFO  parse.ParserJob - ParserJob: parsing all
+2016-06-15 02:26:11,866 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2016-06-15 02:26:13,237 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 02:26:13,244 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 02:26:13,515 INFO  fetcher.FetcherJob - 0/0 spinwaiting/active, 1 pages, 0 errors, 0.1 0 pages/s, 8 0 kb/s, 0 URLs in 0 queues
+2016-06-15 02:26:13,515 INFO  fetcher.FetcherJob - -activeThreads=0
+2016-06-15 02:26:13,531 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 02:26:14,078 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2016-06-15 02:26:14,105 INFO  fetcher.FetcherJob - FetcherJob: finished at 2016-06-15 02:26:14, time elapsed: 00:00:14
+2016-06-15 02:26:14,152 INFO  parse.ParserJob - Parsing https://www.kaggle.com/
+2016-06-15 02:26:17,185 INFO  Indian Lang Identifier - Language identifier configuration [1-4/2048]
+2016-06-15 02:26:18,248 INFO  Indian Lang Identifier - Language identifier plugin supports: en(2527) gu(10000) bn(10000) mr(10000) te(10000) hi(10000) as(10000) ta(10000) or(5344) pa(10000)
+2016-06-15 02:26:19,116 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/ classified as health
+2016-06-15 02:26:19,135 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2016-06-15 02:26:19,215 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 02:26:19,574 INFO  parse.ParserJob - ParserJob: success
+2016-06-15 02:26:19,575 INFO  parse.ParserJob - ParserJob: finished at 2016-06-15 02:26:19, time elapsed: 00:00:08
+2016-06-15 02:51:47,865 INFO  crawl.GeneratorJob - GeneratorJob: starting at 2016-06-15 02:51:47
+2016-06-15 02:51:47,884 INFO  crawl.GeneratorJob - GeneratorJob: Selecting best-scoring urls due for fetch.
+2016-06-15 02:51:47,884 INFO  crawl.GeneratorJob - GeneratorJob: starting
+2016-06-15 02:51:47,884 INFO  crawl.GeneratorJob - GeneratorJob: filtering: true
+2016-06-15 02:51:47,884 INFO  crawl.GeneratorJob - GeneratorJob: normalizing: true
+2016-06-15 02:51:48,208 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-15 02:51:48,209 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-15 02:51:48,209 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-15 02:51:49,922 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 02:51:49,943 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 02:51:51,039 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-15 02:51:51,041 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-15 02:51:51,041 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-15 02:51:51,147 INFO  regex.RegexURLNormalizer - can't find rules for scope 'generate_host_count', using default
+2016-06-15 02:51:51,521 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 02:51:52,390 INFO  crawl.GeneratorJob - GeneratorJob: finished at 2016-06-15 02:51:52, time elapsed: 00:00:04
+2016-06-15 02:51:52,391 INFO  crawl.GeneratorJob - GeneratorJob: generated batch id: 1 containing 17 URLs
+2016-06-15 02:51:54,324 INFO  fetcher.FetcherJob - FetcherJob: starting at 2016-06-15 02:51:54
+2016-06-15 02:51:54,325 INFO  fetcher.FetcherJob - FetcherJob: fetching all
+2016-06-15 02:51:54,326 INFO  fetcher.FetcherJob - FetcherJob: threads: 10
+2016-06-15 02:51:54,326 INFO  fetcher.FetcherJob - FetcherJob: parsing: false
+2016-06-15 02:51:54,326 INFO  fetcher.FetcherJob - FetcherJob: resuming: false
+2016-06-15 02:51:54,326 INFO  fetcher.FetcherJob - FetcherJob : timelimit set for : -1
+2016-06-15 02:51:55,375 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 02:51:55,375 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 02:51:55,376 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 02:51:55,376 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 02:51:55,376 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:51:55,376 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:51:55,376 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:51:55,408 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 02:51:55,408 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 02:51:55,418 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 02:51:55,418 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 02:51:55,418 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:51:55,418 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:51:55,418 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:51:55,433 INFO  http.Http - http.proxy.host = null
+2016-06-15 02:51:55,433 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 02:51:55,433 INFO  http.Http - http.timeout = 10000
+2016-06-15 02:51:55,433 INFO  http.Http - http.content.limit = -1
+2016-06-15 02:51:55,433 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:51:55,433 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:51:55,433 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:51:55,442 INFO  http.Http - http.proxy.host = null
+2016-06-15 02:51:55,442 INFO  http.Http - http.proxy.port = 8080
+2016-06-15 02:51:55,442 INFO  http.Http - http.timeout = 10000
+2016-06-15 02:51:55,442 INFO  http.Http - http.content.limit = -1
+2016-06-15 02:51:55,442 INFO  http.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:51:55,442 INFO  http.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:51:55,442 INFO  http.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:51:56,425 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 02:51:56,431 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 02:51:57,432 INFO  fetcher.FetcherJob - Using queue mode : byHost
+2016-06-15 02:51:57,432 INFO  fetcher.FetcherJob - Fetcher: threads: 10
+2016-06-15 02:51:57,471 INFO  fetcher.FetcherJob - QueueFeeder finished: total 17 records. Hit by time limit :0
+2016-06-15 02:51:57,491 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/forums (queue crawl delay=5000ms)
+2016-06-15 02:51:57,495 INFO  fetcher.FetcherJob - fetching http://blog.kaggle.com/ (queue crawl delay=5000ms)
+2016-06-15 02:51:57,496 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 02:51:57,496 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 02:51:57,496 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 02:51:57,496 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 02:51:57,496 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:51:57,496 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:51:57,496 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:51:57,502 INFO  fetcher.FetcherJob - fetching https://inclass.kaggle.com/ (queue crawl delay=5000ms)
+2016-06-15 02:51:57,507 INFO  httpclient.Http - http.proxy.host = null
+2016-06-15 02:51:57,507 INFO  httpclient.Http - http.proxy.port = 8080
+2016-06-15 02:51:57,507 INFO  httpclient.Http - http.timeout = 10000
+2016-06-15 02:51:57,507 INFO  httpclient.Http - http.content.limit = -1
+2016-06-15 02:51:57,507 INFO  httpclient.Http - http.agent = clia/Nutch-2.3
+2016-06-15 02:51:57,507 INFO  httpclient.Http - http.accept.language = en-us,en-gb,en;q=0.7,*;q=0.3
+2016-06-15 02:51:57,507 INFO  httpclient.Http - http.accept = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+2016-06-15 02:51:57,508 INFO  fetcher.FetcherJob - Fetcher: throughput threshold: -1
+2016-06-15 02:51:57,508 INFO  fetcher.FetcherJob - Fetcher: throughput threshold sequence: 5
+2016-06-15 02:52:02,508 INFO  fetcher.FetcherJob - 8/10 spinwaiting/active, 1 pages, 0 errors, 0.2 0 pages/s, 111 111 kb/s, 14 URLs in 2 queues
+2016-06-15 02:52:07,509 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 3 pages, 0 errors, 0.3 0 pages/s, 346 580 kb/s, 14 URLs in 1 queues
+2016-06-15 02:52:10,790 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/terms (queue crawl delay=5000ms)
+2016-06-15 02:52:12,509 INFO  fetcher.FetcherJob - 9/10 spinwaiting/active, 3 pages, 0 errors, 0.2 0 pages/s, 230 0 kb/s, 13 URLs in 1 queues
+2016-06-15 02:52:17,509 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 4 pages, 0 errors, 0.2 0 pages/s, 199 106 kb/s, 13 URLs in 1 queues
+2016-06-15 02:52:17,867 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/team (queue crawl delay=5000ms)
+2016-06-15 02:52:19,048 INFO  regex.RegexURLNormalizer - can't find rules for scope 'fetcher', using default
+2016-06-15 02:52:22,510 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 5 pages, 0 errors, 0.2 0 pages/s, 159 0 kb/s, 12 URLs in 1 queues
+2016-06-15 02:52:24,137 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/ (queue crawl delay=5000ms)
+2016-06-15 02:52:27,510 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 6 pages, 0 errors, 0.2 0 pages/s, 136 17 kb/s, 11 URLs in 1 queues
+2016-06-15 02:52:30,703 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/careers (queue crawl delay=5000ms)
+2016-06-15 02:52:32,511 INFO  fetcher.FetcherJob - 9/10 spinwaiting/active, 6 pages, 0 errors, 0.2 0 pages/s, 116 0 kb/s, 10 URLs in 1 queues
+2016-06-15 02:52:37,511 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 7 pages, 0 errors, 0.2 0 pages/s, 106 35 kb/s, 10 URLs in 1 queues
+2016-06-15 02:52:37,891 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/c/titanic (queue crawl delay=5000ms)
+2016-06-15 02:52:42,511 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 8 pages, 0 errors, 0.2 0 pages/s, 99 39 kb/s, 9 URLs in 1 queues
+2016-06-15 02:52:44,866 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/competitions (queue crawl delay=5000ms)
+2016-06-15 02:52:47,511 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 9 pages, 0 errors, 0.2 0 pages/s, 100 111 kb/s, 8 URLs in 1 queues
+2016-06-15 02:52:52,274 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/users (queue crawl delay=5000ms)
+2016-06-15 02:52:52,512 INFO  fetcher.FetcherJob - 9/10 spinwaiting/active, 9 pages, 0 errors, 0.2 0 pages/s, 91 0 kb/s, 7 URLs in 1 queues
+2016-06-15 02:52:57,512 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 10 pages, 0 errors, 0.2 0 pages/s, 94 131 kb/s, 7 URLs in 1 queues
+2016-06-15 02:52:59,403 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/account/register (queue crawl delay=5000ms)
+2016-06-15 02:53:02,513 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 11 pages, 0 errors, 0.2 0 pages/s, 89 31 kb/s, 6 URLs in 1 queues
+2016-06-15 02:53:05,887 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/host (queue crawl delay=5000ms)
+2016-06-15 02:53:07,062 INFO  regex.RegexURLNormalizer - can't find rules for scope 'fetcher', using default
+2016-06-15 02:53:07,513 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 12 pages, 0 errors, 0.2 0 pages/s, 83 0 kb/s, 5 URLs in 1 queues
+2016-06-15 02:53:12,070 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/privacy (queue crawl delay=5000ms)
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob - 9/10 spinwaiting/active, 12 pages, 0 errors, 0.2 0 pages/s, 77 0 kb/s, 4 URLs in 1 queues
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob - * queue: https://www.kaggle.com
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   maxThreads    = 1
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   inProgress    = 1
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   crawlDelay    = 5000
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   minCrawlDelay = 0
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   nextFetchTime = 1465939392062
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   now           = 1465939392514
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   0. https://www.kaggle.com/scripts
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   1. https://www.kaggle.com/Home/contact
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   2. https://www.kaggle.com/jobs
+2016-06-15 02:53:12,514 INFO  fetcher.FetcherJob -   3. https://www.kaggle.com/datasets
+2016-06-15 02:53:13,234 INFO  regex.RegexURLNormalizer - can't find rules for scope 'fetcher', using default
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 13 pages, 0 errors, 0.2 0 pages/s, 72 0 kb/s, 4 URLs in 1 queues
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob - * queue: https://www.kaggle.com
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   maxThreads    = 1
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   inProgress    = 0
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   crawlDelay    = 5000
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   minCrawlDelay = 0
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   nextFetchTime = 1465939398234
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   now           = 1465939397515
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   0. https://www.kaggle.com/scripts
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   1. https://www.kaggle.com/Home/contact
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   2. https://www.kaggle.com/jobs
+2016-06-15 02:53:17,515 INFO  fetcher.FetcherJob -   3. https://www.kaggle.com/datasets
+2016-06-15 02:53:18,241 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/scripts (queue crawl delay=5000ms)
+2016-06-15 02:53:22,515 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 14 pages, 0 errors, 0.2 0 pages/s, 69 8 kb/s, 3 URLs in 1 queues
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob - * queue: https://www.kaggle.com
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   maxThreads    = 1
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   inProgress    = 0
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   crawlDelay    = 5000
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   minCrawlDelay = 0
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   nextFetchTime = 1465939404422
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   now           = 1465939402516
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   0. https://www.kaggle.com/Home/contact
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   1. https://www.kaggle.com/jobs
+2016-06-15 02:53:22,516 INFO  fetcher.FetcherJob -   2. https://www.kaggle.com/datasets
+2016-06-15 02:53:24,429 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/Home/contact (queue crawl delay=5000ms)
+2016-06-15 02:53:27,516 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 15 pages, 0 errors, 0.2 0 pages/s, 65 0 kb/s, 2 URLs in 1 queues
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob - * queue: https://www.kaggle.com
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   maxThreads    = 1
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   inProgress    = 0
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   crawlDelay    = 5000
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   minCrawlDelay = 0
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   nextFetchTime = 1465939410588
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   now           = 1465939407517
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   0. https://www.kaggle.com/jobs
+2016-06-15 02:53:27,517 INFO  fetcher.FetcherJob -   1. https://www.kaggle.com/datasets
+2016-06-15 02:53:30,595 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/jobs (queue crawl delay=5000ms)
+2016-06-15 02:53:32,517 INFO  fetcher.FetcherJob - 10/10 spinwaiting/active, 16 pages, 0 errors, 0.2 0 pages/s, 65 63 kb/s, 1 URLs in 1 queues
+2016-06-15 02:53:32,518 INFO  fetcher.FetcherJob - * queue: https://www.kaggle.com
+2016-06-15 02:53:32,518 INFO  fetcher.FetcherJob -   maxThreads    = 1
+2016-06-15 02:53:32,518 INFO  fetcher.FetcherJob -   inProgress    = 0
+2016-06-15 02:53:32,519 INFO  fetcher.FetcherJob -   crawlDelay    = 5000
+2016-06-15 02:53:32,519 INFO  fetcher.FetcherJob -   minCrawlDelay = 0
+2016-06-15 02:53:32,519 INFO  fetcher.FetcherJob -   nextFetchTime = 1465939417355
+2016-06-15 02:53:32,519 INFO  fetcher.FetcherJob -   now           = 1465939412519
+2016-06-15 02:53:32,519 INFO  fetcher.FetcherJob -   0. https://www.kaggle.com/datasets
+2016-06-15 02:53:37,360 INFO  fetcher.FetcherJob - fetching https://www.kaggle.com/datasets (queue crawl delay=5000ms)
+2016-06-15 02:53:37,416 INFO  fetcher.FetcherJob - -finishing thread FetcherThread0, activeThreads=9
+2016-06-15 02:53:37,519 INFO  fetcher.FetcherJob - 8/9 spinwaiting/active, 16 pages, 0 errors, 0.2 0 pages/s, 61 0 kb/s, 0 URLs in 1 queues
+2016-06-15 02:53:37,532 INFO  fetcher.FetcherJob - -finishing thread FetcherThread4, activeThreads=7
+2016-06-15 02:53:37,532 INFO  fetcher.FetcherJob - -finishing thread FetcherThread5, activeThreads=7
+2016-06-15 02:53:37,578 INFO  fetcher.FetcherJob - -finishing thread FetcherThread8, activeThreads=4
+2016-06-15 02:53:37,578 INFO  fetcher.FetcherJob - -finishing thread FetcherThread3, activeThreads=3
+2016-06-15 02:53:37,578 INFO  fetcher.FetcherJob - -finishing thread FetcherThread2, activeThreads=4
+2016-06-15 02:53:37,578 INFO  fetcher.FetcherJob - -finishing thread FetcherThread6, activeThreads=4
+2016-06-15 02:53:37,578 INFO  fetcher.FetcherJob - -finishing thread FetcherThread9, activeThreads=2
+2016-06-15 02:53:37,853 INFO  fetcher.FetcherJob - -finishing thread FetcherThread1, activeThreads=1
+2016-06-15 02:53:38,891 INFO  fetcher.FetcherJob - -finishing thread FetcherThread7, activeThreads=0
+2016-06-15 02:53:42,519 INFO  fetcher.FetcherJob - 0/0 spinwaiting/active, 17 pages, 0 errors, 0.2 0 pages/s, 60 38 kb/s, 0 URLs in 0 queues
+2016-06-15 02:53:42,519 INFO  fetcher.FetcherJob - -activeThreads=0
+2016-06-15 02:53:42,554 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 02:53:42,725 INFO  fetcher.FetcherJob - FetcherJob: finished at 2016-06-15 02:53:42, time elapsed: 00:01:48
+2016-06-15 02:54:24,552 INFO  parse.ParserJob - ParserJob: starting at 2016-06-15 02:54:24
+2016-06-15 02:54:24,555 INFO  parse.ParserJob - ParserJob: resuming:	false
+2016-06-15 02:54:24,555 INFO  parse.ParserJob - ParserJob: forced reparse:	false
+2016-06-15 02:54:24,555 INFO  parse.ParserJob - ParserJob: parsing all
+2016-06-15 02:54:25,033 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2016-06-15 02:54:25,969 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-15 02:54:25,974 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-15 02:54:26,592 INFO  crawl.SignatureFactory - Using Signature impl: org.apache.nutch.crawl.MD5Signature
+2016-06-15 02:54:26,684 INFO  parse.ParserJob - Parsing http://blog.kaggle.com/
+2016-06-15 02:54:30,659 INFO  Indian Lang Identifier - Language identifier configuration [1-4/2048]
+2016-06-15 02:54:31,094 INFO  Indian Lang Identifier - Language identifier plugin supports: en(2527) gu(10000) bn(10000) mr(10000) te(10000) hi(10000) as(10000) ta(10000) or(5344) pa(10000)
+2016-06-15 02:54:32,110 INFO  domain.DomainIdentifier - URL: http://blog.kaggle.com/ classified as health
+2016-06-15 02:54:32,134 INFO  regex.RegexURLNormalizer - can't find rules for scope 'outlink', using default
+2016-06-15 02:54:32,240 INFO  parse.ParserJob - Parsing https://inclass.kaggle.com/
+2016-06-15 02:54:41,002 INFO  parse.ParserJob - Parsing https://www.kaggle.com/
+2016-06-15 02:54:42,534 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/ classified as health
+2016-06-15 02:54:42,547 INFO  parse.ParserJob - Parsing https://www.kaggle.com/Home/contact
+2016-06-15 02:54:42,550 INFO  parse.ParserJob - Parsing https://www.kaggle.com/account/register
+2016-06-15 02:54:43,289 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/account/register classified as health
+2016-06-15 02:54:43,301 INFO  parse.ParserJob - Parsing https://www.kaggle.com/c/titanic
+2016-06-15 02:54:44,879 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/c/titanic classified as health
+2016-06-15 02:54:44,908 INFO  parse.ParserJob - Parsing https://www.kaggle.com/careers
+2016-06-15 02:54:45,676 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/careers classified as health
+2016-06-15 02:54:45,691 INFO  parse.ParserJob - Parsing https://www.kaggle.com/competitions
+2016-06-15 02:54:47,924 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/competitions classified as health
+2016-06-15 02:54:47,960 INFO  parse.ParserJob - Parsing https://www.kaggle.com/datasets
+2016-06-15 02:54:48,914 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/datasets classified as health
+2016-06-15 02:54:48,977 INFO  parse.ParserJob - Parsing https://www.kaggle.com/forums
+2016-06-15 02:54:57,275 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/forums classified as health
+2016-06-15 02:54:57,449 INFO  parse.ParserJob - Parsing https://www.kaggle.com/host
+2016-06-15 02:54:57,452 INFO  parse.ParserJob - Parsing https://www.kaggle.com/jobs
+2016-06-15 02:54:58,386 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/jobs classified as health
+2016-06-15 02:54:58,423 INFO  parse.ParserJob - Parsing https://www.kaggle.com/privacy
+2016-06-15 02:54:58,440 INFO  parse.ParserJob - Parsing https://www.kaggle.com/scripts
+2016-06-15 02:54:59,102 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/scripts classified as health
+2016-06-15 02:54:59,111 INFO  parse.ParserJob - Parsing https://www.kaggle.com/team
+2016-06-15 02:54:59,114 INFO  parse.ParserJob - Parsing https://www.kaggle.com/terms
+2016-06-15 02:55:01,696 INFO  domain.DomainIdentifier - URL: https://www.kaggle.com/terms classified as general
+2016-06-15 02:55:01,727 INFO  parse.ParserJob - Parsing https://www.kaggle.com/users
+2016-06-15 02:55:03,262 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-15 02:55:04,216 INFO  parse.ParserJob - ParserJob: success
+2016-06-15 02:55:04,217 INFO  parse.ParserJob - ParserJob: finished at 2016-06-15 02:55:04, time elapsed: 00:00:39

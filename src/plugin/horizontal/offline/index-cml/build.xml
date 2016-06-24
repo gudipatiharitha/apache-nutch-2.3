@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<project name="index-cml" default="jar">
+
+  <import file="../../../build-lang-plugin.xml"/>
+
+<target name="deps-jar">
+    <ant target="deploy" inheritall="false" dir="../../../nutch-extensionpoints"/>
+    <ant target="jar" inheritall="false" dir="../../../scoring-content"/>
+  </target>
+
+  <!-- Add compilation dependencies to classpath -->
+  <path id="plugin.deps">
+    <fileset dir="${nutch.root}/build">
+      <include name="**/scoring-content/*.jar" />
+    </fileset>
+  </path>
+
+</project>
+

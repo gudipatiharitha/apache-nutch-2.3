@@ -1,0 +1,27 @@
+2016-06-17 15:43:01,214 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-17 15:43:01
+2016-06-17 15:43:01,215 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-17 15:43:02,590 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-17 15:43:02,595 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-17 15:43:03,460 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-17 15:43:03,461 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-17 15:43:03,461 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-17 15:43:03,609 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-17 15:43:03,852 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-17 15:43:03, time elapsed: 00:00:02
+2016-06-17 19:00:37,344 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-17 19:00:37
+2016-06-17 19:00:37,369 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-17 19:00:41,835 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-17 19:00:41,873 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-17 19:00:44,953 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-17 19:00:44,957 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-17 19:00:44,957 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-17 19:00:45,378 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-17 19:00:45,963 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-17 19:00:45, time elapsed: 00:00:08
+2016-06-17 19:06:53,896 INFO  crawl.DbUpdaterJob - DbUpdaterJob: starting at 2016-06-17 19:06:53
+2016-06-17 19:06:53,898 INFO  crawl.DbUpdaterJob - DbUpdaterJob: updatinging all
+2016-06-17 19:06:57,319 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-06-17 19:06:57,333 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-06-17 19:06:59,966 INFO  crawl.FetchScheduleFactory - Using FetchSchedule impl: org.apache.nutch.crawl.AdaptiveFetchSchedule
+2016-06-17 19:06:59,968 INFO  crawl.AbstractFetchSchedule - defaultInterval=900
+2016-06-17 19:06:59,969 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
+2016-06-17 19:07:08,760 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-06-17 19:07:08,975 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-17 19:07:08, time elapsed: 00:00:15

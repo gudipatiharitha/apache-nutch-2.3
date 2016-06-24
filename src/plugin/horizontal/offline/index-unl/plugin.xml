@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="index-unl"
+   name="UNL Indexer"
+   version="0.0.1"
+   provider-name="nutch.org">
+
+   <runtime>
+      <!-- As defined in build.xml this plugin will end up bundled as recommended.jar -->
+      <library name="index-unl.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+   <requires>
+      <import plugin="nutch-extensionpoints"/>
+   </requires>
+
+   <!-- The Cmlified indexer extends the IndexingFilter to grab the contents of
+        any recommended meta tags -->
+ <extension id="org.apache.nutch.unl.indexfilter"
+              name="UNL Indexer"
+              point="org.apache.nutch.indexer.IndexingFilter">
+      <implementation id="UNLIndexer"
+                      class="org.apache.nutch.unl.UNLIndexer"/>
+   </extension>
+
+
+</plugin>
+
