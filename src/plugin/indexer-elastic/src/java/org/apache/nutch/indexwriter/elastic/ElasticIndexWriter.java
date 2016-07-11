@@ -73,6 +73,7 @@ public class ElasticIndexWriter implements IndexWriter {
 
   @Override
   public void open(Configuration job) throws IOException {
+    LOG.info("ElasticIndexWriter: open");
     clusterName = job.get(ElasticConstants.CLUSTER);
     host = job.get(ElasticConstants.HOST);
     port = job.getInt(ElasticConstants.PORT, 9300);
@@ -95,7 +96,7 @@ public class ElasticIndexWriter implements IndexWriter {
         }
       }
     }
-
+    
     if (StringUtils.isNotBlank(clusterName))
       settingsBuilder.put("cluster.name", clusterName);
 
@@ -110,9 +111,12 @@ public class ElasticIndexWriter implements IndexWriter {
       node = nodeBuilder().settings(settings).client(true).node();
       client = node.client();
     }
+    LOG.info("**************************");
+    LOG.info("host:port:cluster" + host +":" + port +":" + clusterName);
 
     bulk = client.prepareBulk();
     defaultIndex = job.get(ElasticConstants.INDEX, "nutch");
+    LOG.info("defaultIndex" + defaultIndex);
     maxBulkDocs = job.getInt(ElasticConstants.MAX_BULK_DOCS,
         DEFAULT_MAX_BULK_DOCS);
     maxBulkLength = job.getInt(ElasticConstants.MAX_BULK_LENGTH,
@@ -121,6 +125,7 @@ public class ElasticIndexWriter implements IndexWriter {
 
   @Override
   public void write(NutchDocument doc) throws IOException {
+    LOG.info("ElasticIndexWriter : write");
     String id = (String) doc.getFieldValue("id");
     String type = doc.getDocumentMeta().get("type");
     if (type == null)
@@ -185,7 +190,9 @@ public class ElasticIndexWriter implements IndexWriter {
 
   @Override
   public void commit() throws IOException {
+    LOG.info("start of commit" + execute);
     if (execute != null) {
+      LOG.info("Execute is not null");
       // wait for previous to finish
       long beforeWait = System.currentTimeMillis();
       BulkResponse actionGet = execute.actionGet();
@@ -197,18 +204,22 @@ public class ElasticIndexWriter implements IndexWriter {
           }
         }
       }
+    
       long msWaited = System.currentTimeMillis() - beforeWait;
       LOG.info("Previous took in ms " + actionGet.getTookInMillis()
           + ", including wait " + msWaited);
       execute = null;
     }
+    LOG.info("execute not null if block completed" + bulk);
     if (bulk != null) {
+      LOG.info("no of bulk docs" + bulkDocs);
       if (bulkDocs > 0) {
         // start a flush, note that this is an asynchronous call
         execute = bulk.execute();
       }
       bulk = null;
     }
+    LOG.info("b4 id create new bulk" + createNewBulk);
     if (createNewBulk) {
       // Prepare a new bulk request
       bulk = client.prepareBulk();

@@ -94,16 +94,19 @@ public class IndexingJob extends NutchTool implements Tool {
     @Override
     public void map(String key, WebPage page, Context context)
         throws IOException, InterruptedException {
+      LOG.info("calling map method");
       ParseStatus pstatus = page.getParseStatus();
+      
       if (pstatus == null || !ParseStatusUtils.isSuccess(pstatus)
           || pstatus.getMinorCode() == ParseStatusCodes.SUCCESS_REDIRECT) {
+	LOG.info("looks like parse error");
         return; // filter urls not parsed
       }
 
       Utf8 mark = Mark.UPDATEDB_MARK.checkMark(page);
       if (mark == null) {
         if (LOG.isDebugEnabled()) {
-          LOG.debug("Skipping " + TableUtil.unreverseUrl(key)
+          LOG.info("Skipping " + TableUtil.unreverseUrl(key)
               + "; not updated on db yet");
         }
         return;
@@ -111,12 +114,15 @@ public class IndexingJob extends NutchTool implements Tool {
 
       NutchDocument doc = indexUtil.index(key, page);
       if (doc == null) {
+        LOG.info("nutch doc is nnull");
         return;
       }
       if (mark != null) {
+	LOG.info("mark is not null");
         Mark.INDEX_MARK.putMark(page, Mark.UPDATEDB_MARK.checkMark(page));
         store.put(key, page);
       }
+      LOG.info("writing the doc");
       context.write(key, doc);
       context.getCounter("IndexerJob", "DocumentCount").increment(1);
     }
@@ -136,21 +142,21 @@ public class IndexingJob extends NutchTool implements Tool {
   public Map<String, Object> run(Map<String, Object> args) throws Exception {
 	System.out.println("inside run1");
     String batchId = (String) args.get(Nutch.ARG_BATCH);
-    System.out.println("try1");
+    System.out.println("batchId" + batchId );
     Configuration conf = getConf();
-    System.out.println("try2");
+    System.out.println("conf:" + conf);
     conf.set(GeneratorJob.BATCH_ID, batchId);
     System.out.println("try3");
     Job job = new NutchJob(conf, "Indexer");
-    System.out.println("try4");
+    System.out.println("job:" + job.getClass());
     // TODO: Figure out why this needs to be here
     job.getConfiguration().setClass("mapred.output.key.comparator.class",
         StringComparator.class, RawComparator.class);
     System.out.println("try5");
     Collection<WebPage.Field> fields = getFields(job);
-    System.out.println("try6");
+    System.out.println("fields:" + fields);
     MapFieldValueFilter<String, WebPage> batchIdFilter = getBatchIdFilter(batchId);
-    System.out.println("try7");
+    System.out.println("batchIdFitlersize"  + batchIdFilter.toString());
     StorageUtils.initMapperJob(job, fields, String.class, NutchDocument.class,
         IndexerMapper.class, batchIdFilter);
     System.out.println("try8");
@@ -162,6 +168,7 @@ public class IndexingJob extends NutchTool implements Tool {
     System.out.println("try11");
     ToolUtil.recordJobStatus(null, job, results);
     System.out.println("try12");
+    System.out.println(results);
     return results;
   }
 
@@ -188,8 +195,12 @@ public class IndexingJob extends NutchTool implements Tool {
     // getConf().set(SolrConstants.SERVER_URL,solrUrl);
     IndexWriters writers = new IndexWriters(getConf());
     LOG.info(writers.describe());
+    LOG.info(SolrConstants.COMMIT_INDEX);
+    LOG.info("Bool"+ getConf().getBoolean(SolrConstants.COMMIT_INDEX, true));
     writers.open(getConf());
+    LOG.info("class name is "+ writers.getClass());
     if (getConf().getBoolean(SolrConstants.COMMIT_INDEX, true)) {
+	LOG.info("calling writers commit");
       writers.commit();
     }
     LOG.info("IndexingJob: done.");

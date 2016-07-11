@@ -25,11 +25,11 @@
 <configuration>
   <property>
     <name>hbase.rootdir</name>
-    <value>/home/dejucoder/searchengine/hbase-data</value> <!-- same path as you've given for HBase above -->
+    <value>file:///home/haritha/work/tools/hbase0.94-data</value> <!-- same path as you've given for HBase above -->
   </property>
   <property>
     <name>hbase.cluster.distributed</name>
-    <value>false</value>
+    <value>true</value>
   </property>
 </configuration>
 </configuration>

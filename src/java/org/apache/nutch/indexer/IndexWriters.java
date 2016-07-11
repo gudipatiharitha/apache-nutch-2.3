@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package org.apache.nutch.indexer;
 
 import java.io.IOException;
@@ -69,6 +70,7 @@ public class IndexWriters {
   }
 
   public void open(Configuration conf) throws IOException {
+LOG.info("IndexWriters: open");
     for (int i = 0; i < this.indexWriters.length; i++) {
       try {
         this.indexWriters[i].open(conf);
@@ -79,6 +81,7 @@ public class IndexWriters {
   }
 
   public void write(NutchDocument doc) throws IOException {
+    LOG.info("IndexWriters : write doc");
     for (int i = 0; i < this.indexWriters.length; i++) {
       try {
         this.indexWriters[i].write(doc);
@@ -89,6 +92,7 @@ public class IndexWriters {
   }
 
   public void update(NutchDocument doc) throws IOException {
+LOG.info("IndexWriters : update doc");
     for (int i = 0; i < this.indexWriters.length; i++) {
       try {
         this.indexWriters[i].update(doc);
@@ -99,6 +103,7 @@ public class IndexWriters {
   }
 
   public void delete(String key) throws IOException {
+LOG.info("IndexWriters : delete key");
     for (int i = 0; i < this.indexWriters.length; i++) {
       try {
         this.indexWriters[i].delete(key);
@@ -109,6 +114,7 @@ public class IndexWriters {
   }
 
   public void close() throws IOException {
+LOG.info("IndexWriters : close ");
     for (int i = 0; i < this.indexWriters.length; i++) {
       try {
         this.indexWriters[i].close();
@@ -119,8 +125,10 @@ public class IndexWriters {
   }
 
   public void commit() throws IOException {
+    LOG.info("in indexwriters commit");
     for (int i = 0; i < this.indexWriters.length; i++) {
       try {
+	LOG.info("calling commit on "+ this.indexWriters[i].getClass());
         this.indexWriters[i].commit();
       } catch (IOException ioe) {
         throw ioe;
@@ -128,9 +136,13 @@ public class IndexWriters {
     }
   }
 
+
   // lists the active IndexWriters and their configuration
   public String describe() throws IOException {
+    LOG.info("In describe");
+    
     StringBuffer buffer = new StringBuffer();
+buffer.append("In describe \n");
     if (this.indexWriters.length == 0)
       buffer.append("No IndexWriters activated - check your configuration\n");
     else
