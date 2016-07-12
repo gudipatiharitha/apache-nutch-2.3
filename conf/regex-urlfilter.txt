@@ -36,5 +36,6 @@
 -.*(/[^/]+)/[^/]+\1/[^/]+\1/
 
 # accept anything else
-#+. - Haritha commented this as per docs and added below
-+^http://([a-z0-9]*\.)*nutch.apache.org/
++.
+#- Haritha commented this as per docs and added below
+#+^http://([a-z0-9]*\.)*nutch.apache.org/

@@ -186,7 +186,7 @@
   </property>
   <property>
     <name>elastic.port</name>
-    <value>9301</value>
+    <value>9300</value>
   </property>
 <!--
   <property>
