@@ -63,14 +63,14 @@
 		<plugin id="parse-zip" />
 	</mimeType>
 
-	<!-- Included in Sandhan upgraded version -->
+	<!-- Included in Sandhan upgraded version 
         <mimeType name="text/html">
 		<plugin id="parse-cml" />  
 	</mimeType>
 
         <mimeType name="application/xhtml+xml"> 
 		<plugin id="parse-cml" />
-	</mimeType>
+	</mimeType> -->
 
 	<mimeType name="text/xml">
 		<plugin id="parse-tika" />
