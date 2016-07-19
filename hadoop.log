@@ -25,3 +25,605 @@
 2016-06-17 19:06:59,969 INFO  crawl.AbstractFetchSchedule - maxInterval=3600
 2016-06-17 19:07:08,760 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
 2016-06-17 19:07:08,975 INFO  crawl.DbUpdaterJob - DbUpdaterJob: finished at 2016-06-17 19:07:08, time elapsed: 00:00:15
+2016-07-19 16:39:08,634 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:39:08,957 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:39:08,957 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:39:09,288 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24722@haritha-Lenovo-Z50-70
+2016-07-19 16:39:09,552 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24722@haritha-Lenovo-Z50-70
+2016-07-19 16:39:09,654 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:39:09,660 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:39:09,699 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24722@haritha-Lenovo-Z50-70
+2016-07-19 16:39:09,868 INFO  mapred.JobClient - Running job: job_local1397780263_0001
+2016-07-19 16:39:09,892 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:39:09,895 INFO  mapred.LocalJobRunner - Starting task: attempt_local1397780263_0001_m_000000_0
+2016-07-19 16:39:09,936 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:39:09,939 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@456dac15
+2016-07-19 16:39:09,993 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24722@haritha-Lenovo-Z50-70
+2016-07-19 16:39:10,049 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24722@haritha-Lenovo-Z50-70
+2016-07-19 16:39:10,137 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24722@haritha-Lenovo-Z50-70
+2016-07-19 16:39:10,162 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@5f6c6b81
+2016-07-19 16:39:10,175 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:39:10,175 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:39:10,175 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:39:10,202 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:39:10,264 INFO  elasticsearch.plugins - [Sally Floyd] loaded [], sites []
+2016-07-19 16:39:10,293 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:39:10,293 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:39:10,294 WARN  mapred.LocalJobRunner - job_local1397780263_0001
+java.lang.Exception: java.lang.NoSuchMethodError: com.google.common.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.NoSuchMethodError: com.google.common.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.elasticsearch.threadpool.ThreadPool.<init>(ThreadPool.java:145)
+	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:119)
+	at org.apache.nutch.indexwriter.elastic.ElasticIndexWriter.open(ElasticIndexWriter.java:110)
+	at org.apache.nutch.indexer.IndexWriters.open(IndexWriters.java:76)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:41)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-19 16:39:10,870 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:39:10,872 INFO  mapred.JobClient - Job complete: job_local1397780263_0001
+2016-07-19 16:39:10,872 INFO  mapred.JobClient - Counters: 0
+2016-07-19 16:39:10,873 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local1397780263_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:55)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:167)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:192)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:220)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+2016-07-19 16:39:42,653 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:39:43,182 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:39:43,182 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:39:43,727 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24854@haritha-Lenovo-Z50-70
+2016-07-19 16:39:44,006 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24854@haritha-Lenovo-Z50-70
+2016-07-19 16:39:44,136 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:39:44,140 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:39:44,190 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24854@haritha-Lenovo-Z50-70
+2016-07-19 16:39:44,349 INFO  mapred.JobClient - Running job: job_local983572726_0001
+2016-07-19 16:39:44,375 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:39:44,378 INFO  mapred.LocalJobRunner - Starting task: attempt_local983572726_0001_m_000000_0
+2016-07-19 16:39:44,412 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:39:44,415 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@5f3b3c43
+2016-07-19 16:39:44,458 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24854@haritha-Lenovo-Z50-70
+2016-07-19 16:39:44,519 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24854@haritha-Lenovo-Z50-70
+2016-07-19 16:39:44,633 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24854@haritha-Lenovo-Z50-70
+2016-07-19 16:39:44,653 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@19bbd3a0
+2016-07-19 16:39:44,668 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:39:44,668 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:39:44,668 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:39:44,690 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:39:44,765 INFO  elasticsearch.plugins - [Crimson Commando] loaded [], sites []
+2016-07-19 16:39:44,797 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:39:44,797 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:39:44,798 WARN  mapred.LocalJobRunner - job_local983572726_0001
+java.lang.Exception: java.lang.NoSuchMethodError: com.google.common.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.NoSuchMethodError: com.google.common.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.elasticsearch.threadpool.ThreadPool.<init>(ThreadPool.java:145)
+	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:119)
+	at org.apache.nutch.indexwriter.elastic.ElasticIndexWriter.open(ElasticIndexWriter.java:110)
+	at org.apache.nutch.indexer.IndexWriters.open(IndexWriters.java:76)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:41)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-19 16:39:45,350 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:39:45,351 INFO  mapred.JobClient - Job complete: job_local983572726_0001
+2016-07-19 16:39:45,351 INFO  mapred.JobClient - Counters: 0
+2016-07-19 16:39:45,352 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local983572726_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:55)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:167)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:192)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:220)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+2016-07-19 16:40:17,936 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:40:18,369 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:40:18,370 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:40:18,959 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24943@haritha-Lenovo-Z50-70
+2016-07-19 16:40:19,227 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24943@haritha-Lenovo-Z50-70
+2016-07-19 16:40:19,323 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:40:19,327 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:40:19,374 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24943@haritha-Lenovo-Z50-70
+2016-07-19 16:40:19,543 INFO  mapred.JobClient - Running job: job_local1894332102_0001
+2016-07-19 16:40:19,565 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:40:19,567 INFO  mapred.LocalJobRunner - Starting task: attempt_local1894332102_0001_m_000000_0
+2016-07-19 16:40:19,602 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:40:19,606 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@224ad05f
+2016-07-19 16:40:19,652 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24943@haritha-Lenovo-Z50-70
+2016-07-19 16:40:19,717 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24943@haritha-Lenovo-Z50-70
+2016-07-19 16:40:19,778 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 24943@haritha-Lenovo-Z50-70
+2016-07-19 16:40:19,800 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@1287cd4c
+2016-07-19 16:40:19,823 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:40:19,823 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:40:19,823 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:40:19,865 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:40:19,936 INFO  elasticsearch.plugins - [Gargantus] loaded [], sites []
+2016-07-19 16:40:19,969 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:40:19,969 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:40:19,969 WARN  mapred.LocalJobRunner - job_local1894332102_0001
+java.lang.Exception: java.lang.NoSuchMethodError: com.google.common.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.NoSuchMethodError: com.google.common.util.concurrent.MoreExecutors.directExecutor()Ljava/util/concurrent/Executor;
+	at org.elasticsearch.threadpool.ThreadPool.<init>(ThreadPool.java:145)
+	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:119)
+	at org.apache.nutch.indexwriter.elastic.ElasticIndexWriter.open(ElasticIndexWriter.java:110)
+	at org.apache.nutch.indexer.IndexWriters.open(IndexWriters.java:76)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:41)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-19 16:40:20,544 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:40:20,545 INFO  mapred.JobClient - Job complete: job_local1894332102_0001
+2016-07-19 16:40:20,545 INFO  mapred.JobClient - Counters: 0
+2016-07-19 16:40:20,546 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local1894332102_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:55)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:167)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:192)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:220)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+2016-07-19 16:41:32,710 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:41:33,187 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:41:33,187 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:41:33,751 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25088@haritha-Lenovo-Z50-70
+2016-07-19 16:41:33,996 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25088@haritha-Lenovo-Z50-70
+2016-07-19 16:41:34,122 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:41:34,128 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:41:34,179 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25088@haritha-Lenovo-Z50-70
+2016-07-19 16:41:34,348 INFO  mapred.JobClient - Running job: job_local473258208_0001
+2016-07-19 16:41:34,365 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:41:34,366 INFO  mapred.LocalJobRunner - Starting task: attempt_local473258208_0001_m_000000_0
+2016-07-19 16:41:34,396 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:41:34,399 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@687619d0
+2016-07-19 16:41:34,441 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25088@haritha-Lenovo-Z50-70
+2016-07-19 16:41:34,506 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25088@haritha-Lenovo-Z50-70
+2016-07-19 16:41:34,571 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25088@haritha-Lenovo-Z50-70
+2016-07-19 16:41:34,597 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@70ea2642
+2016-07-19 16:41:34,610 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:41:34,610 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:41:34,611 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:41:34,645 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:41:34,706 INFO  elasticsearch.plugins - [Nemesis] loaded [], sites []
+2016-07-19 16:41:35,350 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:41:35,374 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:41:35,374 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:41:35,375 WARN  mapred.LocalJobRunner - job_local473258208_0001
+java.lang.Exception: java.lang.NoSuchMethodError: org.jboss.netty.channel.socket.nio.NioWorkerPool.<init>(Ljava/util/concurrent/Executor;I)V
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.NoSuchMethodError: org.jboss.netty.channel.socket.nio.NioWorkerPool.<init>(Ljava/util/concurrent/Executor;I)V
+	at org.elasticsearch.transport.netty.NettyTransport.createClientBootstrap(NettyTransport.java:320)
+	at org.elasticsearch.transport.netty.NettyTransport.doStart(NettyTransport.java:248)
+	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)
+	at org.elasticsearch.transport.TransportService.doStart(TransportService.java:170)
+	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)
+	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:148)
+	at org.apache.nutch.indexwriter.elastic.ElasticIndexWriter.open(ElasticIndexWriter.java:110)
+	at org.apache.nutch.indexer.IndexWriters.open(IndexWriters.java:76)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:41)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-19 16:41:36,352 INFO  mapred.JobClient - Job complete: job_local473258208_0001
+2016-07-19 16:41:36,353 INFO  mapred.JobClient - Counters: 0
+2016-07-19 16:41:36,354 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local473258208_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:55)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:167)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:192)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:220)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+2016-07-19 16:43:22,501 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:43:23,013 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:43:23,013 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:43:23,520 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25260@haritha-Lenovo-Z50-70
+2016-07-19 16:43:23,786 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25260@haritha-Lenovo-Z50-70
+2016-07-19 16:43:23,900 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:43:23,906 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:43:23,944 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25260@haritha-Lenovo-Z50-70
+2016-07-19 16:43:24,108 INFO  mapred.JobClient - Running job: job_local555083960_0001
+2016-07-19 16:43:24,132 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:43:24,134 INFO  mapred.LocalJobRunner - Starting task: attempt_local555083960_0001_m_000000_0
+2016-07-19 16:43:24,185 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:43:24,189 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@456dac15
+2016-07-19 16:43:24,257 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25260@haritha-Lenovo-Z50-70
+2016-07-19 16:43:24,329 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25260@haritha-Lenovo-Z50-70
+2016-07-19 16:43:24,390 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25260@haritha-Lenovo-Z50-70
+2016-07-19 16:43:24,406 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@5f6c6b81
+2016-07-19 16:43:24,419 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:43:24,419 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:43:24,419 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:43:24,447 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:43:24,513 INFO  elasticsearch.plugins - [Angel Face] loaded [], sites []
+2016-07-19 16:43:25,110 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:43:25,181 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:43:25,181 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:43:25,182 WARN  mapred.LocalJobRunner - job_local555083960_0001
+java.lang.Exception: java.lang.NoSuchMethodError: org.jboss.netty.channel.socket.nio.NioWorkerPool.<init>(Ljava/util/concurrent/Executor;I)V
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.NoSuchMethodError: org.jboss.netty.channel.socket.nio.NioWorkerPool.<init>(Ljava/util/concurrent/Executor;I)V
+	at org.elasticsearch.transport.netty.NettyTransport.createClientBootstrap(NettyTransport.java:320)
+	at org.elasticsearch.transport.netty.NettyTransport.doStart(NettyTransport.java:248)
+	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)
+	at org.elasticsearch.transport.TransportService.doStart(TransportService.java:170)
+	at org.elasticsearch.common.component.AbstractLifecycleComponent.start(AbstractLifecycleComponent.java:68)
+	at org.elasticsearch.client.transport.TransportClient$Builder.build(TransportClient.java:148)
+	at org.apache.nutch.indexwriter.elastic.ElasticIndexWriter.open(ElasticIndexWriter.java:110)
+	at org.apache.nutch.indexer.IndexWriters.open(IndexWriters.java:76)
+	at org.apache.nutch.indexer.IndexerOutputFormat.getRecordWriter(IndexerOutputFormat.java:41)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.<init>(MapTask.java:627)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:753)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-19 16:43:26,111 INFO  mapred.JobClient - Job complete: job_local555083960_0001
+2016-07-19 16:43:26,112 INFO  mapred.JobClient - Counters: 0
+2016-07-19 16:43:26,113 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local555083960_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:55)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:167)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:192)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:220)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+2016-07-19 16:45:51,070 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:45:51,555 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:45:51,555 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:45:51,962 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25449@haritha-Lenovo-Z50-70
+2016-07-19 16:45:52,229 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25449@haritha-Lenovo-Z50-70
+2016-07-19 16:45:52,342 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:45:52,347 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:45:52,396 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25449@haritha-Lenovo-Z50-70
+2016-07-19 16:45:52,552 INFO  mapred.JobClient - Running job: job_local967474998_0001
+2016-07-19 16:45:52,568 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:45:52,570 INFO  mapred.LocalJobRunner - Starting task: attempt_local967474998_0001_m_000000_0
+2016-07-19 16:45:52,603 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:45:52,606 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@1c6fb208
+2016-07-19 16:45:52,665 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25449@haritha-Lenovo-Z50-70
+2016-07-19 16:45:52,713 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25449@haritha-Lenovo-Z50-70
+2016-07-19 16:45:52,784 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25449@haritha-Lenovo-Z50-70
+2016-07-19 16:45:52,813 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@5aee8bf3
+2016-07-19 16:45:52,824 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:45:52,824 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:45:52,825 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:45:52,862 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:45:52,927 INFO  elasticsearch.plugins - [Americop] loaded [], sites []
+2016-07-19 16:45:53,554 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:45:53,734 INFO  elastic.ElasticIndexWriter - **************************
+2016-07-19 16:45:53,735 INFO  elastic.ElasticIndexWriter - host:port:clusterlocalhost:9300:null
+2016-07-19 16:45:53,738 INFO  elastic.ElasticIndexWriter - defaultIndexnutchindex
+2016-07-19 16:45:53,739 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:45:53,739 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:45:53,776 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25449@haritha-Lenovo-Z50-70
+2016-07-19 16:45:53,843 INFO  indexer.IndexingJob - calling map method
+2016-07-19 16:45:53,854 INFO  indexer.IndexingJob - mark is not null
+2016-07-19 16:45:53,864 INFO  indexer.IndexingJob - writing the doc
+2016-07-19 16:45:53,864 INFO  indexer.IndexWriters - IndexWriters : write doc
+2016-07-19 16:45:53,864 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter : write
+2016-07-19 16:45:53,908 INFO  indexer.IndexWriters - IndexWriters : close 
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - Processing remaining requests [docs = 0, length = 7234, total docs = 0]
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - start of commitnull
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - execute not null if block completedorg.elasticsearch.action.bulk.BulkRequestBuilder@5398fe80
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - no of bulk docs0
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - b4 id create new bulkfalse
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - Processing to finalize last execute
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - start of commitnull
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - execute not null if block completednull
+2016-07-19 16:45:53,908 INFO  elastic.ElasticIndexWriter - b4 id create new bulkfalse
+2016-07-19 16:45:53,952 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:45:53,952 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:45:53,953 WARN  mapred.LocalJobRunner - job_local967474998_0001
+java.lang.Exception: java.lang.NoSuchFieldError: FAIL_ON_SYMBOL_HASH_OVERFLOW
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.NoSuchFieldError: FAIL_ON_SYMBOL_HASH_OVERFLOW
+	at org.elasticsearch.common.xcontent.json.JsonXContent.<clinit>(JsonXContent.java:51)
+	at org.elasticsearch.common.xcontent.XContentFactory.contentBuilder(XContentFactory.java:122)
+	at org.elasticsearch.action.index.IndexRequest.source(IndexRequest.java:365)
+	at org.elasticsearch.action.index.IndexRequest.source(IndexRequest.java:355)
+	at org.elasticsearch.action.index.IndexRequestBuilder.setSource(IndexRequestBuilder.java:94)
+	at org.apache.nutch.indexwriter.elastic.ElasticIndexWriter.write(ElasticIndexWriter.java:152)
+	at org.apache.nutch.indexer.IndexWriters.write(IndexWriters.java:87)
+	at org.apache.nutch.indexer.IndexerOutputFormat$1.write(IndexerOutputFormat.java:48)
+	at org.apache.nutch.indexer.IndexerOutputFormat$1.write(IndexerOutputFormat.java:43)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.write(MapTask.java:638)
+	at org.apache.hadoop.mapreduce.TaskInputOutputContext.write(TaskInputOutputContext.java:80)
+	at org.apache.nutch.indexer.IndexingJob$IndexerMapper.map(IndexingJob.java:126)
+	at org.apache.nutch.indexer.IndexingJob$IndexerMapper.map(IndexingJob.java:69)
+	at org.apache.hadoop.mapreduce.Mapper.run(Mapper.java:145)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:764)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-19 16:45:54,556 INFO  mapred.JobClient - Job complete: job_local967474998_0001
+2016-07-19 16:45:54,556 INFO  mapred.JobClient - Counters: 0
+2016-07-19 16:45:54,556 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local967474998_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:55)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:167)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:192)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:220)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+2016-07-19 16:48:13,374 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:48:13,852 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:48:13,852 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:48:14,280 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25767@haritha-Lenovo-Z50-70
+2016-07-19 16:48:14,551 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25767@haritha-Lenovo-Z50-70
+2016-07-19 16:48:14,669 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:48:14,675 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:48:14,722 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25767@haritha-Lenovo-Z50-70
+2016-07-19 16:48:14,891 INFO  mapred.JobClient - Running job: job_local2039137020_0001
+2016-07-19 16:48:14,918 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:48:14,920 INFO  mapred.LocalJobRunner - Starting task: attempt_local2039137020_0001_m_000000_0
+2016-07-19 16:48:14,956 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:48:14,959 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@687619d0
+2016-07-19 16:48:15,009 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25767@haritha-Lenovo-Z50-70
+2016-07-19 16:48:15,076 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25767@haritha-Lenovo-Z50-70
+2016-07-19 16:48:15,145 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25767@haritha-Lenovo-Z50-70
+2016-07-19 16:48:15,163 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@70ea2642
+2016-07-19 16:48:15,177 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:48:15,177 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:48:15,177 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:48:15,214 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:48:15,276 INFO  elasticsearch.plugins - [Lila Cheney] loaded [], sites []
+2016-07-19 16:48:15,893 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:48:16,060 INFO  elastic.ElasticIndexWriter - **************************
+2016-07-19 16:48:16,060 INFO  elastic.ElasticIndexWriter - host:port:clusterlocalhost:9300:null
+2016-07-19 16:48:16,064 INFO  elastic.ElasticIndexWriter - defaultIndexnutchindex
+2016-07-19 16:48:16,066 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:48:16,066 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:48:16,105 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25767@haritha-Lenovo-Z50-70
+2016-07-19 16:48:16,316 INFO  indexer.IndexingJob - calling map method
+2016-07-19 16:48:16,336 INFO  indexer.IndexingJob - mark is not null
+2016-07-19 16:48:16,337 INFO  indexer.IndexingJob - writing the doc
+2016-07-19 16:48:16,337 INFO  indexer.IndexWriters - IndexWriters : write doc
+2016-07-19 16:48:16,337 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter : write
+2016-07-19 16:48:16,368 INFO  indexer.IndexWriters - IndexWriters : close 
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - Processing remaining requests [docs = 0, length = 7234, total docs = 0]
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - start of commitnull
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - execute not null if block completedorg.elasticsearch.action.bulk.BulkRequestBuilder@2c1ae465
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - no of bulk docs0
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - b4 id create new bulkfalse
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - Processing to finalize last execute
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - start of commitnull
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - execute not null if block completednull
+2016-07-19 16:48:16,368 INFO  elastic.ElasticIndexWriter - b4 id create new bulkfalse
+2016-07-19 16:48:16,424 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:48:16,425 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:48:16,426 WARN  mapred.LocalJobRunner - job_local2039137020_0001
+java.lang.Exception: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JsonGeneratorDelegate
+	at org.apache.hadoop.mapred.LocalJobRunner$Job.run(LocalJobRunner.java:354)
+Caused by: java.lang.NoClassDefFoundError: com/fasterxml/jackson/core/util/JsonGeneratorDelegate
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:763)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at org.elasticsearch.common.xcontent.XContentFactory.contentBuilder(XContentFactory.java:122)
+	at org.elasticsearch.action.index.IndexRequest.source(IndexRequest.java:365)
+	at org.elasticsearch.action.index.IndexRequest.source(IndexRequest.java:355)
+	at org.elasticsearch.action.index.IndexRequestBuilder.setSource(IndexRequestBuilder.java:94)
+	at org.apache.nutch.indexwriter.elastic.ElasticIndexWriter.write(ElasticIndexWriter.java:152)
+	at org.apache.nutch.indexer.IndexWriters.write(IndexWriters.java:87)
+	at org.apache.nutch.indexer.IndexerOutputFormat$1.write(IndexerOutputFormat.java:48)
+	at org.apache.nutch.indexer.IndexerOutputFormat$1.write(IndexerOutputFormat.java:43)
+	at org.apache.hadoop.mapred.MapTask$NewDirectOutputCollector.write(MapTask.java:638)
+	at org.apache.hadoop.mapreduce.TaskInputOutputContext.write(TaskInputOutputContext.java:80)
+	at org.apache.nutch.indexer.IndexingJob$IndexerMapper.map(IndexingJob.java:126)
+	at org.apache.nutch.indexer.IndexingJob$IndexerMapper.map(IndexingJob.java:69)
+	at org.apache.hadoop.mapreduce.Mapper.run(Mapper.java:145)
+	at org.apache.hadoop.mapred.MapTask.runNewMapper(MapTask.java:764)
+	at org.apache.hadoop.mapred.MapTask.run(MapTask.java:364)
+	at org.apache.hadoop.mapred.LocalJobRunner$Job$MapTaskRunnable.run(LocalJobRunner.java:223)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: com.fasterxml.jackson.core.util.JsonGeneratorDelegate
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 33 more
+2016-07-19 16:48:16,895 INFO  mapred.JobClient - Job complete: job_local2039137020_0001
+2016-07-19 16:48:16,895 INFO  mapred.JobClient - Counters: 0
+2016-07-19 16:48:16,895 ERROR indexer.IndexingJob - SolrIndexerJob: java.lang.RuntimeException: job failed: name=Indexer, jobid=job_local2039137020_0001
+	at org.apache.nutch.util.NutchJob.waitForCompletion(NutchJob.java:55)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:167)
+	at org.apache.nutch.indexer.IndexingJob.index(IndexingJob.java:192)
+	at org.apache.nutch.indexer.IndexingJob.run(IndexingJob.java:220)
+	at org.apache.hadoop.util.ToolRunner.run(ToolRunner.java:65)
+	at org.apache.nutch.indexer.IndexingJob.main(IndexingJob.java:229)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
+2016-07-19 16:49:10,566 INFO  indexer.IndexingJob - IndexingJob: starting
+2016-07-19 16:49:11,133 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:49:11,133 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:49:11,621 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25932@haritha-Lenovo-Z50-70
+2016-07-19 16:49:11,890 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25932@haritha-Lenovo-Z50-70
+2016-07-19 16:49:11,986 WARN  util.NativeCodeLoader - Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+2016-07-19 16:49:11,990 WARN  mapred.JobClient - No job jar file set.  User classes may not be found. See JobConf(Class) or JobConf#setJar(String).
+2016-07-19 16:49:12,034 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25932@haritha-Lenovo-Z50-70
+2016-07-19 16:49:12,198 INFO  mapred.JobClient - Running job: job_local946250430_0001
+2016-07-19 16:49:12,227 INFO  mapred.LocalJobRunner - Waiting for map tasks
+2016-07-19 16:49:12,229 INFO  mapred.LocalJobRunner - Starting task: attempt_local946250430_0001_m_000000_0
+2016-07-19 16:49:12,269 INFO  util.ProcessTree - setsid exited with exit code 0
+2016-07-19 16:49:12,272 INFO  mapred.Task -  Using ResourceCalculatorPlugin : org.apache.hadoop.util.LinuxResourceCalculatorPlugin@1c6fb208
+2016-07-19 16:49:12,322 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25932@haritha-Lenovo-Z50-70
+2016-07-19 16:49:12,375 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25932@haritha-Lenovo-Z50-70
+2016-07-19 16:49:12,443 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25932@haritha-Lenovo-Z50-70
+2016-07-19 16:49:12,509 INFO  mapred.MapTask - Processing split: org.apache.gora.mapreduce.GoraInputSplit@5aee8bf3
+2016-07-19 16:49:12,518 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:49:12,518 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:49:12,518 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:49:12,546 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:49:12,604 INFO  elasticsearch.plugins - [Microchip] loaded [], sites []
+2016-07-19 16:49:13,200 INFO  mapred.JobClient -  map 0% reduce 0%
+2016-07-19 16:49:13,444 INFO  elastic.ElasticIndexWriter - **************************
+2016-07-19 16:49:13,444 INFO  elastic.ElasticIndexWriter - host:port:clusterlocalhost:9300:null
+2016-07-19 16:49:13,448 INFO  elastic.ElasticIndexWriter - defaultIndexnutchindex
+2016-07-19 16:49:13,450 INFO  basic.BasicIndexingFilter - Maximum title length for indexing set to: 10000
+2016-07-19 16:49:13,450 INFO  indexer.IndexingFilters - Adding org.apache.nutch.indexer.basic.BasicIndexingFilter
+2016-07-19 16:49:13,482 INFO  zookeeper.RecoverableZooKeeper - The identifier of this process is 25932@haritha-Lenovo-Z50-70
+2016-07-19 16:49:13,559 INFO  indexer.IndexingJob - calling map method
+2016-07-19 16:49:13,570 INFO  indexer.IndexingJob - mark is not null
+2016-07-19 16:49:13,571 INFO  indexer.IndexingJob - writing the doc
+2016-07-19 16:49:13,571 INFO  indexer.IndexWriters - IndexWriters : write doc
+2016-07-19 16:49:13,571 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter : write
+2016-07-19 16:49:13,647 INFO  indexer.IndexingJob - calling map method
+2016-07-19 16:49:13,647 INFO  indexer.IndexingJob - mark is not null
+2016-07-19 16:49:13,657 INFO  indexer.IndexingJob - writing the doc
+2016-07-19 16:49:13,657 INFO  indexer.IndexWriters - IndexWriters : write doc
+2016-07-19 16:49:13,657 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter : write
+2016-07-19 16:49:13,661 INFO  indexer.IndexingJob - calling map method
+2016-07-19 16:49:13,662 INFO  indexer.IndexingJob - mark is not null
+2016-07-19 16:49:13,664 INFO  indexer.IndexingJob - writing the doc
+2016-07-19 16:49:13,664 INFO  indexer.IndexWriters - IndexWriters : write doc
+2016-07-19 16:49:13,665 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter : write
+2016-07-19 16:49:13,691 INFO  indexer.IndexWriters - IndexWriters : close 
+2016-07-19 16:49:13,691 INFO  elastic.ElasticIndexWriter - Processing remaining requests [docs = 3, length = 37214, total docs = 3]
+2016-07-19 16:49:13,691 INFO  elastic.ElasticIndexWriter - start of commitnull
+2016-07-19 16:49:13,691 INFO  elastic.ElasticIndexWriter - execute not null if block completedorg.elasticsearch.action.bulk.BulkRequestBuilder@13c96325
+2016-07-19 16:49:13,691 INFO  elastic.ElasticIndexWriter - no of bulk docs3
+2016-07-19 16:49:13,707 INFO  elastic.ElasticIndexWriter - b4 id create new bulkfalse
+2016-07-19 16:49:13,707 INFO  elastic.ElasticIndexWriter - Processing to finalize last execute
+2016-07-19 16:49:13,707 INFO  elastic.ElasticIndexWriter - start of commitorg.elasticsearch.action.support.PlainListenableActionFuture@1365d538
+2016-07-19 16:49:13,707 INFO  elastic.ElasticIndexWriter - Execute is not null
+2016-07-19 16:49:15,751 INFO  elastic.ElasticIndexWriter - Previous took in ms 2012, including wait 2044
+2016-07-19 16:49:15,751 INFO  elastic.ElasticIndexWriter - execute not null if block completednull
+2016-07-19 16:49:15,751 INFO  elastic.ElasticIndexWriter - b4 id create new bulkfalse
+2016-07-19 16:49:15,776 INFO  mapred.Task - Task:attempt_local946250430_0001_m_000000_0 is done. And is in the process of commiting
+2016-07-19 16:49:15,778 INFO  mapred.LocalJobRunner - 
+2016-07-19 16:49:15,778 INFO  mapred.Task - Task 'attempt_local946250430_0001_m_000000_0' done.
+2016-07-19 16:49:15,778 INFO  mapred.LocalJobRunner - Finishing task: attempt_local946250430_0001_m_000000_0
+2016-07-19 16:49:15,778 INFO  mapred.LocalJobRunner - Map task executor complete.
+2016-07-19 16:49:15,779 WARN  mapred.FileOutputCommitter - Output path is null in cleanup
+2016-07-19 16:49:16,202 INFO  mapred.JobClient - Job complete: job_local946250430_0001
+2016-07-19 16:49:16,204 INFO  mapred.JobClient - Counters: 13
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -   Map-Reduce Framework
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Spilled Records=0
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Virtual memory (bytes) snapshot=0
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Map input records=3
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     SPLIT_RAW_BYTES=721
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Map output records=3
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Physical memory (bytes) snapshot=0
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     CPU time spent (ms)=0
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Total committed heap usage (bytes)=276824064
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -   IndexerJob
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     DocumentCount=3
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -   File Input Format Counters 
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Bytes Read=0
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -   FileSystemCounters
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     FILE_BYTES_WRITTEN=84120
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     FILE_BYTES_READ=779
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -   File Output Format Counters 
+2016-07-19 16:49:16,204 INFO  mapred.JobClient -     Bytes Written=0
+2016-07-19 16:49:16,207 INFO  indexer.IndexWriters - Adding org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:49:16,207 INFO  indexer.IndexWriters - In describe
+2016-07-19 16:49:16,207 INFO  indexer.IndexingJob - In describe 
+Active IndexWriters :
+ElasticIndexWriter
+	elastic.cluster : elastic prefix cluster
+	elastic.host : hostname
+	elastic.port : port  (default 9300)
+	elastic.index : elastic index command 
+	elastic.max.bulk.docs : elastic bulk index doc counts. (default 250) 
+	elastic.max.bulk.size : elastic bulk index length. (default 2500500 ~2.5MB)
+
+
+2016-07-19 16:49:16,207 INFO  indexer.IndexingJob - solr.commit.index
+2016-07-19 16:49:16,207 INFO  indexer.IndexingJob - Booltrue
+2016-07-19 16:49:16,207 INFO  indexer.IndexWriters - IndexWriters: open
+2016-07-19 16:49:16,207 INFO  elastic.ElasticIndexWriter - ElasticIndexWriter: open
+2016-07-19 16:49:16,207 INFO  conf.Configuration - found resource elasticsearch.conf at file:/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3/conf/elasticsearch.conf
+2016-07-19 16:49:16,213 INFO  elasticsearch.plugins - [Quicksand] loaded [], sites []
+2016-07-19 16:49:16,263 INFO  elastic.ElasticIndexWriter - **************************
+2016-07-19 16:49:16,263 INFO  elastic.ElasticIndexWriter - host:port:clusterlocalhost:9300:null
+2016-07-19 16:49:16,263 INFO  elastic.ElasticIndexWriter - defaultIndexnutchindex
+2016-07-19 16:49:16,263 INFO  indexer.IndexingJob - class name is class org.apache.nutch.indexer.IndexWriters
+2016-07-19 16:49:16,263 INFO  indexer.IndexingJob - calling writers commit
+2016-07-19 16:49:16,264 INFO  indexer.IndexWriters - in indexwriters commit
+2016-07-19 16:49:16,264 INFO  indexer.IndexWriters - calling commit on class org.apache.nutch.indexwriter.elastic.ElasticIndexWriter
+2016-07-19 16:49:16,264 INFO  elastic.ElasticIndexWriter - start of commitnull
+2016-07-19 16:49:16,264 INFO  elastic.ElasticIndexWriter - execute not null if block completedorg.elasticsearch.action.bulk.BulkRequestBuilder@21ba0741
+2016-07-19 16:49:16,264 INFO  elastic.ElasticIndexWriter - no of bulk docs0
+2016-07-19 16:49:16,264 INFO  elastic.ElasticIndexWriter - b4 id create new bulkfalse
+2016-07-19 16:49:16,264 INFO  indexer.IndexingJob - IndexingJob: done.
