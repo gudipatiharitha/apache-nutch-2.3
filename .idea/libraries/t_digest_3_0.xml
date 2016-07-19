@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="t-digest-3.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/plugin/indexer-elastic/lib/t-digest-3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

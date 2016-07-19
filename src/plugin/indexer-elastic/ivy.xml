@@ -29,7 +29,12 @@ language governing permissions and limitations under the License. -->
 
   <dependencies>
     <dependency org="org.elasticsearch" name="elasticsearch"
-      rev="1.4.1" conf="*->default" />
+      rev="2.0.0" conf="*->default" />
+    <dependency org="com.twitter" name="jsr166e" rev="1.0.0"/>
+    <dependency org="com.tdunning" name="t-digest" rev="3.0"/>
+    <dependency org="com.google.guava" name="guava" rev="18.0"/>
+
+
   </dependencies>
 
 </ivy-module>

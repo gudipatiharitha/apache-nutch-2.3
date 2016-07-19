@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="hppc-0.7.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/plugin/indexer-elastic/lib/hppc-0.7.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/plugin/indexer-elastic/lib/commons-cli-1.3.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/plugin/indexer-elastic/lib/compress-lzf-1.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/plugin/indexer-elastic/lib/guava-18.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/plugin/indexer-elastic/lib/HdrHistogram-2.1.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

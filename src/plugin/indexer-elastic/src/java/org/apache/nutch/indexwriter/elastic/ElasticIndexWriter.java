@@ -21,6 +21,7 @@ import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,8 +38,8 @@ import org.elasticsearch.action.delete.DeleteRequestBuilder;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.common.settings.ImmutableSettings;
-import org.elasticsearch.common.settings.ImmutableSettings.Builder;
+import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.settings.Settings.Builder;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.node.Node;
@@ -78,8 +79,9 @@ public class ElasticIndexWriter implements IndexWriter {
     host = job.get(ElasticConstants.HOST);
     port = job.getInt(ElasticConstants.PORT, 9300);
 
-    Builder settingsBuilder = ImmutableSettings.settingsBuilder().classLoader(
-        Settings.class.getClassLoader());
+
+
+    Builder settingsBuilder = Settings.settingsBuilder();
 
     BufferedReader reader = new BufferedReader(
         job.getConfResourceAsReader("elasticsearch.conf"));
@@ -105,8 +107,8 @@ public class ElasticIndexWriter implements IndexWriter {
 
     // Prefer TransportClient
     if (host != null && port > 1) {
-      client = new TransportClient(settings)
-          .addTransportAddress(new InetSocketTransportAddress(host, port));
+      client = TransportClient.builder().settings(settings).build()
+          .addTransportAddress(new InetSocketTransportAddress(InetAddress.getByName(host), port));
     } else if (clusterName != null) {
       node = nodeBuilder().settings(settings).client(true).node();
       client = node.client();
