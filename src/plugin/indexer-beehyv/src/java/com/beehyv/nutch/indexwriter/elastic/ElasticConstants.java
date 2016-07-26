@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.nutch.indexwriter.elastic;
+package com.beehyv.nutch.indexwriter.elastic;
 
 public interface ElasticConstants {
   public static final String ELASTIC_PREFIX = "elastic.";

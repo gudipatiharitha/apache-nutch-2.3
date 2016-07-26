@@ -15,7 +15,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<plugin id="indexer-beehyv" name="ElasticIndexWriter" version="1.0.0"
+<plugin id="indexer-beehyv" name="BeehyvIndexWriter" version="1.0.0"
   provider-name="nutch.apache.org">
 
 <runtime>
@@ -58,11 +58,11 @@
      <import plugin="indexer-elastic" />
   </requires>
 
-  <extension id="org.apache.nutch.indexer.elastic"
-    name="Elasticsearch Index Writer"
+  <extension id="com.beehyv.nutch.indexwriter"
+    name="Beehyv Elasticsearch Index Writer"
     point="org.apache.nutch.indexer.IndexWriter">
-      <implementation id="ElasticIndexWriter"
-      class="org.apache.nutch.indexwriter.elastic.ElasticIndexWriter" />
+      <implementation id="BeehyvIndexWriter"
+      class="com.beehyv.nutch.indexwriter.elastic.BeehyvIndexWriter" />
   </extension>
 
 </plugin>

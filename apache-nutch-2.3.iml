@@ -445,6 +445,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/plugin/index-beehyv/src/java" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/plugin/indexer-elastic-beehyv/src/java" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/plugin/indexer-elastic/src/java" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/plugin/indexer-beehyv/src/java" isTestSource="false" generated="true" />
     </content>
     <orderEntry type="module-library">
       <library name="conf">

@@ -36,7 +36,7 @@
 <value>${CLIA_HOME}/build/plugins</value>
 </property>
  <property>
-    <name>plugin.includes</name>     <value>protocol-httpclient|urlfilter-regex|parse-beehyv|index-beehyv|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|indexer-beehyv</value>
+    <name>plugin.includes</name>     <value>protocol-httpclient|urlfilter-regex|parse-beehyv|index-beehyv|indexer-beehyv|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)</value>
   </property>
 <!--
 <property>
