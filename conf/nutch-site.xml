@@ -7,7 +7,7 @@
 
 <property>
 	<name>CLIA_HOME</name>
-	<value>/home/haritha/work/projects/holmes/apache-nutch-2.3</value>
+	<value>/home/haritha/work/projects/holmes/nutch_fork/apache-nutch-2.3</value>
 	<description>Absolute path to the CLIA system</description>
 </property>
 
@@ -36,7 +36,7 @@
 <value>${CLIA_HOME}/build/plugins</value>
 </property>
  <property>
-    <name>plugin.includes</name>     <value>protocol-httpclient|urlfilter-regex|parse-html|index-basic|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|indexer-elastic</value>
+    <name>plugin.includes</name>     <value>protocol-httpclient|urlfilter-regex|parse-beehyv|index-beehyv|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)|indexer-beehyv</value>
   </property>
 <!--
 <property>

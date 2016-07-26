@@ -69,6 +69,12 @@
      <ant dir="horizontal/offline/index-unl" target="deploy"/> <!-- Included in Sandhan-->
      <ant dir="horizontal/offline/index-cml" target="deploy"/> <!-- Included in Sandhan-->
      <ant dir="horizontal/offline/parse-cml" target="deploy"/> <!-- Included in Sandhan-->
+
+      <ant dir="parse-beehyv" target="deploy"/> <!-- Included by Beehyv -->
+      <ant dir="index-beehyv" target="deploy"/> <!-- Included by Beehyv -->
+      <ant dir="indexer-beehyv" target="deploy"/> <!-- Included by Beehyv -->
+
+
      <!--
      <ant dir="feed" target="deploy"/>
      <ant dir="parse-ext" target="deploy"/>
@@ -166,5 +172,8 @@
     <ant dir="horizontal/offline/index-unl" target="clean"/> <!-- Included in Sandhan-->
     <ant dir="horizontal/offline/index-cml" target="clean"/> <!-- Included in Sandhan-->
     <ant dir="horizontal/offline/parse-cml" target="clean"/> <!-- Included in Sandhan-->
+      <ant dir="parse-beehyv" target="clean" /> <!-- Included by Beehyv -->
+      <ant dir="index-beehyv" target="clean" /> <!-- Included by Beehyv -->
+      <ant dir="indexer-beehyv" target="clean" /> <!-- Included by Beehyv -->
   </target>
 </project>
