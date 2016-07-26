@@ -93,7 +93,7 @@ public class BeehyvIndexWriter implements IndexWriter {
     Builder settingsBuilder = Settings.settingsBuilder();
 
     BufferedReader reader = new BufferedReader(
-        job.getConfResourceAsReader("conf/elasticsearch.conf"));
+        job.getConfResourceAsReader("elasticsearch.conf"));
     String line;
     String parts[];
 
