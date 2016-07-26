@@ -19,7 +19,11 @@ public class RelianceParser extends ProductParser {
 
 
     public Parse getParse(String url, WebPage page) {
-        productId = Utils.getProductIdFromUrl(url,tenant);
+        try {
+            productId = Utils.getProductIdFromUrl(url, tenant);
+        } catch(ArrayIndexOutOfBoundsException e){
+            LOG.error("The wrong parser seems to be called !!!! ");
+        }
         type = ProductConstants.PAGE_TYPE_TENANT_PRODUCT;
         return super.getParse(url, page);
     }

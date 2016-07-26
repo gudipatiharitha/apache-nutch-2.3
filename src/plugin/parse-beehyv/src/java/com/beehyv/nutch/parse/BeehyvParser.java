@@ -4,11 +4,11 @@ import com.beehyv.nectar.extractor.HtmlExtractor;
 import com.beehyv.nectar.models.DocumentContent;
 import com.beehyv.nectar.models.json.JSONDocumentContent;
 import com.beehyv.nectar.utils.DocumentContentMapper;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.geronimo.mail.util.StringBufferOutputStream;
 import org.apache.nutch.parse.Parse;
 import org.apache.nutch.parse.html.HtmlParser;
 import org.apache.nutch.storage.WebPage;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

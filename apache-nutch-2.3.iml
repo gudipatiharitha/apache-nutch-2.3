@@ -2991,7 +2991,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/com/beehyv/holmes-datastore/0.0.1-SNAPSHOT/holmes-datastore-0.0.1-SNAPSHOT.jar!/" />
@@ -3022,6 +3022,15 @@
       <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/com/beehyv/document-ingestor/0.0.1-SNAPSHOT/document-ingestor-0.0.1-SNAPSHOT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/plugin/indexer-beehyv/lib/joda-time-2.8.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
