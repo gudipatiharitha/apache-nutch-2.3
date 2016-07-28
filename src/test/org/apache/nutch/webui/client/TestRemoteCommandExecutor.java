@@ -47,7 +47,7 @@ public class TestRemoteCommandExecutor {
 
   @Before
   public void setUp() {
-    remoteExecutor.setRequestDelay(Duration.millis(REQUEST_DELAY));
+    remoteExecutor.setRequestDelay(Duration.standardSeconds(REQUEST_DELAY / 1000));
   }
 
   @Test
@@ -89,7 +89,7 @@ public class TestRemoteCommandExecutor {
   public void shouldThrowExceptionOnTimeout() {
     // given
     RemoteCommand command = RemoteCommandBuilder.instance(JobType.INJECT)
-        .withTimeout(Duration.millis(REQUEST_DELAY / 2)).build();
+        .withTimeout(Duration.standardSeconds(REQUEST_DELAY / 2000)).build();
 
     JobInfo jobInfo = new JobInfo();
     jobInfo.setState(State.RUNNING);

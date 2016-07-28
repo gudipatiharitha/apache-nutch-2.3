@@ -40,7 +40,7 @@ public class BeehyvParser extends HtmlParser {
 //        page.setProductId(productId);
 //        page.setProductTypeId(productType.getName());
 //        page.setSourceUrl(content.getSourceURL());
-
+/*
         String tenant = "";
         String type = "";
         String productId = "";
@@ -51,7 +51,7 @@ public class BeehyvParser extends HtmlParser {
         page.getMetadata().put("tenant", ByteBuffer.wrap(tenant.getBytes()));
         page.getMetadata().put("productId", ByteBuffer.wrap(productId.getBytes()));
         page.getMetadata().put("productTypeId", ByteBuffer.wrap(productTypeId.getBytes()));
-        page.getMetadata().put("sourceUrl", ByteBuffer.wrap(sourceUrl.getBytes()));
+        page.getMetadata().put("sourceUrl", ByteBuffer.wrap(sourceUrl.getBytes()));*/
 
         try {
             mapper.writeValue(new StringBufferOutputStream(out), docContent);
