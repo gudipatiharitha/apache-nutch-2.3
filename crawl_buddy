@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# author: kapil.mangtani@beehyv.com
+# todo: create --help or show required params when wrong usage 
+#
+# This script crawls a given url to the specified depth and indexes it to ElasticSearch index
+# utilizing the nutch mechanism (inject, generate, fetch , parse, , updatedb, index)
+#
+# Pre-Requisites to run this script:
+# 1. Env variable NUTCH_HOME pointing your nutch directory
+# 2. Hbase 0.94.x up and running
+# 3. ElasticSearch 2.0 up and running
+#
+# It is assumed that you have configured Nutch, Hbase and ElasticSearch as per the documentation here:
+# https://docs.google.com/document/d/1rYL3l6cAKop9JWNeofC7Zxg0BdOfbSZnxXw2qOmOGD0/edit 
+#
+# Script Parameters and Usage:
+# /bin/bash crawl_buddy <crawl_url> <url-regex-filter> <depth>
+# <crawl_url> : The url/domain to be crawled
+# <url-regex-filter> : Regular expression to filter out urls during generating and fetching
+# <depth> : Depth of crawl (no of times urls from outlinks will be added to fetchlist)
+# e.g. crawl_buddy "http://www.beehyv.com" "http://www.beehyv.com(.+)*" 3
+
+clear				# Clear the terminal window
+echo "Welcome to crawl buddy"
+
+# Reading script parameters
+CRAWL_URL=$1
+REGEX_FILTER=$2
+DEPTH=$3
+CURRENT_DIR=$(pwd)
+
+# Add the regex filter and build
+echo "Adding url filter to regex-urlfilter.txt"
+# Clearing previous contents
+> $NUTCH_HOME/conf/regex-urlfilter.txt
+cat <<EOT >> $NUTCH_HOME/conf/regex-urlfilter.txt
+-^(file|ftp|mailto):
+-\.(gif|GIF|jpg|JPG|png|PNG|ico|ICO|css|CSS|sit|SIT|eps|EPS|wmf|WMF|zip|ZIP|ppt|PPT|mpg|MPG|xls|XLS|gz|GZ|rpm|RPM|tgz|TGZ|mov|MOV|exe|EXE|jpeg|JPEG|bmp|BMP|js|JS)$
++^$REGEX_FILTER
+EOT
+
+# Change directory to nutch home and build
+cd $NUTCH_HOME
+ant runtime
+
+# Add the url to urls.txt
+echo "Adding url to be injected"
+echo $CRAWL_URL >> $NUTCH_HOME/runtime/local/seed/urls.txt
+
+cd $NUTCH_HOME/runtime/local
+# Inject this url
+echo "Injecting url $CRAWL_URL"
+bin/nutch inject seed/urls.txt
+
+# generate urls for crawl
+for i in `seq 1 $DEPTH`
+do
+	now=`date '+%Y-%m-%d__%H:%M:%S'`
+	log=$NUTCH_HOME/logs/$now
+
+	cd $NUTCH_HOME/runtime/local
+	echo "Generate"
+	bin/nutch generate -topN 1000 > $log
+	batchId=`sed -n 's|.*batch id: \(.*\)|\1|p' < $log | head -1`
+	batchId=${batchId:0:21}
+	batch_ids[$i]=$batchId
+	echo "Batch id is : $batchId"
+
+	# Fetch
+	echo "Fetching for batchId $batchId"
+	bin/nutch fetch $batchId >> $log
+
+	# Parse
+	echo "Parse for batchId $batchI"
+	bin/nutch parse $batchId >> $log
+
+	# Update
+	echo "Updatedb"
+	bin/nutch updatedb -all >> $log
+	echo "Generated urls for depth $i with batch_id ${batch_ids[$i]}"
+done
+
+echo "Generated batch ids are:"
+printf '%s\n' "${batch_ids[@]}"
+# Index for each batch id
+for batch_id in ${batch_ids[@]}
+do
+	echo "Indexing for batch_id $batch_id"
+	bin/nutch index $batch_id
+done
+echo "Finished Job"
