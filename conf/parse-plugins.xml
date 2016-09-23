@@ -81,6 +81,10 @@
 		<plugin id="parse-reliance" />
 	</mimeType>
 
+	<mimeType name="application/pdf">
+		<plugin id="parse-pdf" />
+	</mimeType>
+
 	<mimeType name="text/xml">
 		<plugin id="parse-tika" />
 		<plugin id="feed" />
@@ -109,6 +113,8 @@
 			   extension-id="com.beehyv.nutch.parse.AmazonParser" />
 		<alias name="parse-product"
 			   extension-id="com.beehyv.nutch.parse.ProductParser" />
+        <alias name="parse-pdf"
+			   extension-id="com.beehyv.nutch.parse.BeehyvPdfParser" />
 		<alias name="parse-tika"
 			extension-id="org.apache.nutch.parse.tika.TikaParser" />
 		<!-- Included in Sandhan upgraded version -->	                

@@ -25,7 +25,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.*;
 
-import com.beehyv.holmes.ETenant;
 import com.beehyv.nectar.models.json.*;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import org.apache.commons.lang.StringUtils;

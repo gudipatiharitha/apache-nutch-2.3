@@ -18,5 +18,5 @@
 /**
  * Index writer plugin for <a href="http://www.elasticsearch.org/">Elasticsearch</a>.
  */
-package org.apache.nutch.indexwriter.elastic;
+package com.beehyv.nutch.indexwriter.elastic;
 

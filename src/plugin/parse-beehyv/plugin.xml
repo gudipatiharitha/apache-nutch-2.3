@@ -14,8 +14,9 @@
 	<library name="holmes-datastore-0.0.1-SNAPSHOT.jar"/>
 	<library name="holmes-model-0.0.1-SNAPSHOT.jar"/>
 	<library name="productpage-extraction-0.0.1-SNAPSHOT.jar"/>
-        <library name="tagsoup-1.2.jar" />
-        <library name="parse-html.jar"/>
+    <library name="tagsoup-1.2.jar" />
+    <library name="pdfbox-app-2.0.3.jar" />
+    <library name="parse-html.jar"/>
 
     </runtime>
 
@@ -45,7 +46,7 @@
             <!-- can optionally specify an encoding parameter now, see NUTCH-564-->
             <!-- <parameter name="encoding" value="UTF-8"/> -->
         </implementation>
-        </extension>
+    </extension>
     <extension id="com.beehyv.nutch.parse.AmazonParser"
                name="AmazonParser"
                point="org.apache.nutch.parse.Parser">
@@ -56,20 +57,25 @@
             <!-- can optionally specify an encoding parameter now, see NUTCH-564-->
             <!-- <parameter name="encoding" value="UTF-8"/> -->
         </implementation>
-        </extension>
+    </extension>
     <extension id="com.beehyv.nutch.parse.ProductParser"
                name="ProductParser"
                point="org.apache.nutch.parse.Parser">
         <implementation id="com.beehyv.nutch.parse.ProductParser"
                                          class="com.beehyv.nutch.parse.ProductParser">
-        <parameter name="contentType" value="text/html|application/xhtml+xml"/>
-        <parameter name="pathSuffix" value=""/>
+            <parameter name="contentType" value="text/html|application/xhtml+xml"/>
+            <parameter name="pathSuffix" value=""/>
         <!-- can optionally specify an encoding parameter now, see NUTCH-564-->
         <!-- <parameter name="encoding" value="UTF-8"/> -->
-    </implementation>
-
-
-
+        </implementation>
+    </extension>
+    <extension id="com.beehyv.nutch.parse.BeehyvPdfParser" name="Pdf Parser"
+                point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.BeehyvPdfParser"
+                        class="com.beehyv.nutch.parse.BeehyvPdfParser">
+            <parameter name="contentType" value="application/pdf"/>
+            <parameter name="pathSuffix" value=""/>
+        </implementation>
 
     </extension>
 
