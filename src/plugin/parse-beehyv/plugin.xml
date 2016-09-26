@@ -76,7 +76,14 @@
             <parameter name="contentType" value="application/pdf"/>
             <parameter name="pathSuffix" value=""/>
         </implementation>
-
+    </extension>
+    <extension id="com.beehyv.nutch.parse.BeehyvDocxParser" name="Doc/Docx Parser"
+                point="org.apache.nutch.parse.Parser">
+        <implementation id="com.beehyv.nutch.parse.BeehyvDocxParser"
+                        class="com.beehyv.nutch.parse.BeehyvDocxParser">
+            <parameter name="contentType" value="application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document"/>
+            <parameter name="pathSuffix" value=""/>
+        </implementation>
     </extension>
 
 </plugin>

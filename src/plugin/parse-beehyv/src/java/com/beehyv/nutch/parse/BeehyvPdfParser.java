@@ -8,14 +8,10 @@ import org.apache.geronimo.mail.util.StringBufferOutputStream;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.http.util.TextUtils;
 import org.apache.nutch.metadata.Metadata;
-import org.apache.nutch.metadata.Nutch;
 import org.apache.nutch.parse.*;
 import org.apache.nutch.storage.ParseStatus;
 import org.apache.nutch.storage.WebPage;
 import org.apache.nutch.util.Bytes;
-import org.apache.nutch.util.MimeUtil;
-import org.apache.nutch.util.NutchConfiguration;
-import org.apache.nutch.util.TableUtil;
 import org.apache.pdfbox.cos.COSDocument;
 import org.apache.pdfbox.io.RandomAccessFile;
 import org.apache.pdfbox.pdfparser.PDFParser;
@@ -26,14 +22,13 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.nio.ByteBuffer;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by kapil on 23/9/16.
@@ -50,7 +45,6 @@ public class BeehyvPdfParser implements Parser {
     }
 
     private Configuration conf;
-    private String cachingPolicy;
     private ObjectMapper mapper = new ObjectMapper();
 
     @Override
@@ -69,6 +63,7 @@ public class BeehyvPdfParser implements Parser {
         Parse parse = null;
 
         try {
+            // todo: use PdfExtractor class here
             parser = new PDFParser(new RandomAccessFile(bytes2file(raw.array()), "r"));
             parser.parse();
             cosDoc = parser.getDocument();
@@ -82,6 +77,8 @@ public class BeehyvPdfParser implements Parser {
             pdfStripper.setEndPage(pdDoc.getNumberOfPages());
 
             pdfText = pdfStripper.getText(pdDoc);
+            // do we really need the outlinks here?
+            // will this outlink extractor work for pdfs?
             Outlink[] outlinks = OutlinkExtractor.getOutlinks(pdfText, getConf());
             // collect title
             PDDocumentInformation info = pdDoc.getDocumentInformation();
@@ -134,8 +131,6 @@ public class BeehyvPdfParser implements Parser {
     @Override
     public void setConf(Configuration configuration) {
         this.conf = configuration;
-        this.cachingPolicy = getConf().get("parser.caching.forbidden.policy",
-                Nutch.CACHING_FORBIDDEN_CONTENT);
     }
 
     @Override
@@ -157,30 +152,4 @@ public class BeehyvPdfParser implements Parser {
         return tempFile;
     }
 
-    /*public static void main(String[] args) throws Exception {
-        String name = args[0];
-        String url = "file:" + name;
-        File file = new File(name);
-        byte[] bytes = new byte[(int) file.length()];
-        @SuppressWarnings("resource")
-        DataInputStream in = new DataInputStream(new FileInputStream(file));
-        in.readFully(bytes);
-        Configuration conf = NutchConfiguration.create();
-        // TikaParser parser = new TikaParser();
-        // parser.setConf(conf);
-        WebPage page = WebPage.newBuilder().build();
-        page.setBaseUrl(new Utf8(url));
-        page.setContent(ByteBuffer.wrap(bytes));
-        MimeUtil mimeutil = new MimeUtil(conf);
-        String mtype = mimeutil.getMimeType(file);
-        page.setContentType(new Utf8(mtype));
-        // Parse parse = parser.getParse(url, page);
-
-        Parse parse = new ParseUtil(conf).parse(url, page);
-
-        System.out.println("content type: " + mtype);
-        System.out.println("title: " + parse.getTitle());
-        System.out.println("text: " + parse.getText());
-        System.out.println("outlinks: " + Arrays.toString(parse.getOutlinks()));
-    }*/
 }

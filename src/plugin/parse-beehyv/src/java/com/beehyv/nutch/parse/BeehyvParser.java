@@ -12,6 +12,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
@@ -29,7 +30,8 @@ public class BeehyvParser extends HtmlParser {
 
         //TODO call boiler pipe here and get the JSON
         HtmlExtractor ext = new HtmlExtractor();
-        DocumentContent content = ext.extractUrl(page.getBaseUrl().toString());
+        ByteBuffer rawContent = page.getContent();
+        DocumentContent content = ext.extract(new ByteArrayInputStream(rawContent.array()));
         JSONDocumentContent docContent = DocumentContentMapper.getJSONMap(content);
         ObjectMapper mapper = new ObjectMapper();
         StringBuffer out = new StringBuffer("");

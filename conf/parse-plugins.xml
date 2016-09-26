@@ -85,6 +85,14 @@
 		<plugin id="parse-pdf" />
 	</mimeType>
 
+    <mimeType name="application/msword">
+		<plugin id="parse-doc" />
+	</mimeType>
+
+    <mimeType name="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+		<plugin id="parse-docx" />
+	</mimeType>
+
 	<mimeType name="text/xml">
 		<plugin id="parse-tika" />
 		<plugin id="feed" />
@@ -115,6 +123,10 @@
 			   extension-id="com.beehyv.nutch.parse.ProductParser" />
         <alias name="parse-pdf"
 			   extension-id="com.beehyv.nutch.parse.BeehyvPdfParser" />
+        <alias name="parse-doc"
+			   extension-id="com.beehyv.nutch.parse.BeehyvDocxParser" />
+        <alias name="parse-docx"
+			   extension-id="com.beehyv.nutch.parse.BeehyvDocxParser" />
 		<alias name="parse-tika"
 			extension-id="org.apache.nutch.parse.tika.TikaParser" />
 		<!-- Included in Sandhan upgraded version -->	                
