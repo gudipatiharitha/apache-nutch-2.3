@@ -20,6 +20,7 @@ package org.apache.nutch.protocol.httpclient;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 // HTTP Client imports
@@ -97,6 +98,15 @@ public class HttpResponse implements Response {
     // params.setParameter(HttpMethodParams.RETRY_HANDLER, null);
     try {
       code = Http.getClient().executeMethod(get);
+      if (code != HttpURLConnection.HTTP_OK) {
+        if (code == HttpURLConnection.HTTP_MOVED_TEMP
+                || code == HttpURLConnection.HTTP_MOVED_PERM
+                || code == HttpURLConnection.HTTP_SEE_OTHER) {
+          followRedirects = true;
+          get.setFollowRedirects(followRedirects);
+          code = Http.getClient().executeMethod(get);
+        }
+      }
 
       Header[] heads = get.getResponseHeaders();
 
