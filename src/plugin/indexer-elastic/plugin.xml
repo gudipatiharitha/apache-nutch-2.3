@@ -50,7 +50,7 @@
     <import plugin="nutch-extensionpoints" />
   </requires>
 
-  <extension id="org.apache.nutch.indexer.elastic"
+  <extension id="org.apache.nutch.indexwriter.elastic"
     name="Elasticsearch Index Writer"
     point="org.apache.nutch.indexer.IndexWriter">
     <implementation id="ElasticIndexWriter"

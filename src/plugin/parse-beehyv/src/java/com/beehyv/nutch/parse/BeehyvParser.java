@@ -27,7 +27,7 @@ public class BeehyvParser extends HtmlParser {
             .getLogger("com.beehyv.nutch.parse");
 
     public Parse getParse(String url, WebPage page) {
-        Parse parse = super.getParse(url,page);
+        Parse parse = super.getParse(url, page);
 
         HtmlExtractor ext = new HtmlExtractor();
         ByteBuffer rawContent = page.getContent();

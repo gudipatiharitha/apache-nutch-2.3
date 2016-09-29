@@ -84,9 +84,9 @@ public class BeehyvIndexWriter implements IndexWriter {
     @Override
     public void open(Configuration job) throws IOException {
         LOG.info("BeehyvIndexWriter: open");
-        clusterName = job.get(ElasticConstants.CLUSTER);
-        host = job.get(ElasticConstants.HOST);
-        port = job.getInt(ElasticConstants.PORT, 9300);
+        clusterName = job.get(BeehyvElasticConstants.CLUSTER);
+        host = job.get(BeehyvElasticConstants.HOST);
+        port = job.getInt(BeehyvElasticConstants.PORT, 9300);
 
 
         Builder settingsBuilder = Settings.settingsBuilder();
@@ -125,11 +125,11 @@ public class BeehyvIndexWriter implements IndexWriter {
         LOG.info("host:port:cluster" + host + ":" + port + ":" + clusterName);
 
         bulk = client.prepareBulk();
-        defaultIndex = job.get(ElasticConstants.INDEX, "src/bin/nutch");
+        defaultIndex = job.get(BeehyvElasticConstants.INDEX, "src/bin/nutch");
         LOG.info("defaultIndex" + defaultIndex);
-        maxBulkDocs = job.getInt(ElasticConstants.MAX_BULK_DOCS,
+        maxBulkDocs = job.getInt(BeehyvElasticConstants.MAX_BULK_DOCS,
                 DEFAULT_MAX_BULK_DOCS);
-        maxBulkLength = job.getInt(ElasticConstants.MAX_BULK_LENGTH,
+        maxBulkLength = job.getInt(BeehyvElasticConstants.MAX_BULK_LENGTH,
                 DEFAULT_MAX_BULK_LENGTH);
         LOG.info("Checking for Index");
         createIndexWithMappings(defaultIndex);
@@ -186,6 +186,7 @@ public class BeehyvIndexWriter implements IndexWriter {
 
                     currAttr = (KeyValueRow) sections.next();
                 } while (TextUtils.isEmpty(currAttr.getKey()) && TextUtils.isEmpty(currAttr.getValue()));
+                currAttr.setSourceUrl(content.getSourceURL());
                 //this.client.insertElasticSearchDocWithParent("attribute", this.mapper.writeValueAsString(currAttr), parentPageId, "reliance");
                 IndexRequestBuilder request = client.prepareIndex(defaultIndex, "attribute")
                         .setSource(this.mapper.writeValueAsString(currAttr)).setParent(parentPageId);
@@ -216,6 +217,7 @@ public class BeehyvIndexWriter implements IndexWriter {
                     LOG.debug("Inserted sections (paragraphs) for parent-id: " + parentPageId);
                     return list;
                 } while (TextUtils.isEmpty(paraSection.getHeading()) && paraSection.getParagraphs() == null);
+                currSec.setSourceUrl(content.getSourceURL());
                 //this.client.insertElasticSearchDocWithParent("section", this.mapper.writeValueAsString(currSec), parentPageId, "reliance");
                 IndexRequestBuilder request = client.prepareIndex(defaultIndex, "section")
                         .setSource(this.mapper.writeValueAsString(currSec)).setParent(parentPageId);
@@ -365,16 +367,16 @@ public class BeehyvIndexWriter implements IndexWriter {
     @Override
     public String describe() {
         StringBuffer sb = new StringBuffer("BeehyvIndexWriter\n");
-        sb.append("\t").append(ElasticConstants.CLUSTER)
+        sb.append("\t").append(BeehyvElasticConstants.CLUSTER)
                 .append(" : elastic prefix cluster\n");
-        sb.append("\t").append(ElasticConstants.HOST).append(" : hostname\n");
-        sb.append("\t").append(ElasticConstants.PORT)
+        sb.append("\t").append(BeehyvElasticConstants.HOST).append(" : hostname\n");
+        sb.append("\t").append(BeehyvElasticConstants.PORT)
                 .append(" : port  (default 9300)\n");
-        sb.append("\t").append(ElasticConstants.INDEX)
+        sb.append("\t").append(BeehyvElasticConstants.INDEX)
                 .append(" : elastic index command \n");
-        sb.append("\t").append(ElasticConstants.MAX_BULK_DOCS)
+        sb.append("\t").append(BeehyvElasticConstants.MAX_BULK_DOCS)
                 .append(" : elastic bulk index doc counts. (default 250) \n");
-        sb.append("\t").append(ElasticConstants.MAX_BULK_LENGTH)
+        sb.append("\t").append(BeehyvElasticConstants.MAX_BULK_LENGTH)
                 .append(" : elastic bulk index length. (default 2500500 ~2.5MB)\n");
         return sb.toString();
     }
@@ -382,8 +384,8 @@ public class BeehyvIndexWriter implements IndexWriter {
     @Override
     public void setConf(Configuration conf) {
         config = conf;
-        String cluster = conf.get(ElasticConstants.CLUSTER);
-        String host = conf.get(ElasticConstants.HOST);
+        String cluster = conf.get(BeehyvElasticConstants.CLUSTER);
+        String host = conf.get(BeehyvElasticConstants.HOST);
 
         if (StringUtils.isBlank(cluster) && StringUtils.isBlank(host)) {
             String message = "Missing elastic.cluster and elastic.host. At least one of them should be set in nutch-site.xml ";

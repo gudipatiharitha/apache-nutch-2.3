@@ -16,7 +16,7 @@
   limitations under the License.
 -->
 <plugin id="indexer-beehyv" name="BeehyvIndexWriter" version="1.0.0"
-  provider-name="nutch.apache.org">
+  provider-name="beehyv.com">
 
 <runtime>
     <library name="indexer-beehyv.jar">
@@ -56,10 +56,9 @@
 
   <requires>
     <import plugin="nutch-extensionpoints" />
-     <import plugin="indexer-elastic" />
   </requires>
 
-  <extension id="com.beehyv.nutch.indexwriter"
+  <extension id="com.beehyv.nutch.indexwriter.elastic"
     name="Beehyv Elasticsearch Index Writer"
     point="org.apache.nutch.indexer.IndexWriter">
       <implementation id="BeehyvIndexWriter"

@@ -16,7 +16,7 @@
  */
 package com.beehyv.nutch.indexwriter.elastic;
 
-public interface ElasticConstants {
+public interface BeehyvElasticConstants {
   public static final String ELASTIC_PREFIX = "elastic.";
 
   public static final String HOST = ELASTIC_PREFIX + "host";
