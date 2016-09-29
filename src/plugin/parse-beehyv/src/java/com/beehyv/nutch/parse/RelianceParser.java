@@ -1,7 +1,7 @@
 package com.beehyv.nutch.parse;
 
-import com.beehyv.holmes.ETenant;
-import com.beehyv.holmes.Utils;
+import com.beehyv.nectar.models.ETenant;
+import com.beehyv.nectar.utils.Utils;
 import org.apache.nutch.parse.Parse;
 import org.apache.nutch.storage.WebPage;
 

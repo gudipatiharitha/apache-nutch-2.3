@@ -9,6 +9,7 @@ import com.beehyv.nectar.utils.DocumentContentMapper;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.geronimo.mail.util.StringBufferOutputStream;
 import org.apache.hadoop.conf.Configuration;
+import org.apache.http.util.TextUtils;
 import org.apache.nutch.parse.*;
 import org.apache.nutch.storage.ParseStatus;
 import org.apache.nutch.storage.WebPage;
@@ -62,6 +63,7 @@ public class BeehyvDocxParser implements Parser {
                 break;
         }
 
+        documentContent.setSourceURL(url);
         JSONDocumentContent jsonDocumentContent = DocumentContentMapper.getJSONMap(documentContent);
         ObjectMapper mapper = new ObjectMapper();
         StringBuffer out = new StringBuffer("");
@@ -71,16 +73,12 @@ public class BeehyvDocxParser implements Parser {
             LOG.error(e.getMessage(),e);
         }
         page.getMetadata().put("json", ByteBuffer.wrap(out.toString().getBytes()));
-        StringBuilder entireText = new StringBuilder("");
-        if (!CollectionUtils.isEmpty(documentContent.getParagraphs())) {
-            for (Paragraph paragraph : documentContent.getParagraphs()) {
-                entireText.append(paragraph.getContent());
-                entireText.append(System.lineSeparator());
-            }
-        }
-        Outlink[] outlinks = OutlinkExtractor.getOutlinks(entireText.toString(), getConf());
+        Outlink[] outlinks;
+        if (!TextUtils.isEmpty(documentContent.getRawContent()))
+            outlinks = OutlinkExtractor.getOutlinks(documentContent.getRawContent(), getConf());
+        else outlinks = new Outlink[0];
         ParseStatus status = ParseStatusUtils.STATUS_SUCCESS;
-        return new Parse(entireText.toString(), jsonDocumentContent.getTitle(), outlinks, status);
+        return new Parse(documentContent.getRawContent(), jsonDocumentContent.getTitle(), outlinks, status);
     }
 
     @Override

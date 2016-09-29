@@ -11,11 +11,8 @@
         </library>
 
 	<library name="document-ingestor-0.0.1-SNAPSHOT.jar"/>
-	<library name="holmes-datastore-0.0.1-SNAPSHOT.jar"/>
-	<library name="holmes-model-0.0.1-SNAPSHOT.jar"/>
 	<library name="productpage-extraction-0.0.1-SNAPSHOT.jar"/>
     <library name="tagsoup-1.2.jar" />
-    <library name="pdfbox-app-2.0.3.jar" />
     <library name="parse-html.jar"/>
 
     </runtime>

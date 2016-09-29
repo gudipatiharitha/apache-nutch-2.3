@@ -186,8 +186,6 @@ public class BeehyvIndexWriter implements IndexWriter {
 
                     currAttr = (KeyValueRow) sections.next();
                 } while (TextUtils.isEmpty(currAttr.getKey()) && TextUtils.isEmpty(currAttr.getValue()));
-
-                currAttr.setSourceUrl(content.getSourceURL());
                 //this.client.insertElasticSearchDocWithParent("attribute", this.mapper.writeValueAsString(currAttr), parentPageId, "reliance");
                 IndexRequestBuilder request = client.prepareIndex(defaultIndex, "attribute")
                         .setSource(this.mapper.writeValueAsString(currAttr)).setParent(parentPageId);
@@ -218,8 +216,6 @@ public class BeehyvIndexWriter implements IndexWriter {
                     LOG.debug("Inserted sections (paragraphs) for parent-id: " + parentPageId);
                     return list;
                 } while (TextUtils.isEmpty(paraSection.getHeading()) && paraSection.getParagraphs() == null);
-
-                currSec.setSourceUrl(content.getSourceURL());
                 //this.client.insertElasticSearchDocWithParent("section", this.mapper.writeValueAsString(currSec), parentPageId, "reliance");
                 IndexRequestBuilder request = client.prepareIndex(defaultIndex, "section")
                         .setSource(this.mapper.writeValueAsString(currSec)).setParent(parentPageId);
