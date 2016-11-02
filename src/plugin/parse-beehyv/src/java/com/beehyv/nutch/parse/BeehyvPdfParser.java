@@ -1,7 +1,8 @@
 package com.beehyv.nutch.parse;
 
+import com.beehyv.holmes.enums.PageTypeEnum;
 import com.beehyv.nectar.extractor.PdfExtractor;
-import com.beehyv.nectar.models.DocumentContent;
+import com.beehyv.nectar.models.information.InfoNode;
 import org.apache.avro.util.Utf8;
 import org.apache.geronimo.mail.util.StringBufferOutputStream;
 import org.apache.hadoop.conf.Configuration;
@@ -41,7 +42,7 @@ public class BeehyvPdfParser implements Parser {
     @Override
     public Parse getParse(String url, WebPage page) {
         String pdfText, title;
-        PdfExtractor extractor = new PdfExtractor();
+        PdfExtractor extractor = PdfExtractor.getInstance(url);
 
         String mimeType = page.getContentType().toString();
         LOG.debug("mimetype is: " + mimeType);
@@ -50,13 +51,12 @@ public class BeehyvPdfParser implements Parser {
 
         ByteBuffer raw = page.getContent();
         ByteArrayInputStream bis = new ByteArrayInputStream(raw.array());
-        DocumentContent pdfDoc = extractor.extract(bis);
-        pdfDoc.setSourceURL(url);
+        InfoNode pdfDoc = extractor.extract(bis, PageTypeEnum.DEFAULT);
 
-        pdfText = pdfDoc.getRawContent();
-        title = pdfDoc.getTitle();
+        pdfText = pdfDoc.getContent();
+        title = pdfDoc.getMetadata().get("title");
         Outlink[] outlinks = OutlinkExtractor.getOutlinks(pdfText, getConf());
-        metadata.add(Metadata.DESCRIPTION, "No of pages: " + String.valueOf(pdfDoc.getNoOfPages()));
+//        metadata.add(Metadata.DESCRIPTION, "No of pages: " + String.valueOf(pdfDoc.getNoOfPages()));
         metadata.add(Metadata.TITLE, title);
 
         ParseStatus status = ParseStatusUtils.STATUS_SUCCESS;
@@ -65,8 +65,8 @@ public class BeehyvPdfParser implements Parser {
         String[] pdfMDNames = metadata.names();
         for (String pdfMDName : pdfMDNames) {
             if (!TextUtils.isEmpty(metadata.get(pdfMDName)))
-            page.getMetadata().put(new Utf8(pdfMDName),
-                    ByteBuffer.wrap(Bytes.toBytes(metadata.get(pdfMDName))));
+                page.getMetadata().put(new Utf8(pdfMDName),
+                        ByteBuffer.wrap(Bytes.toBytes(metadata.get(pdfMDName))));
         }
 
         StringBuffer out = new StringBuffer("");

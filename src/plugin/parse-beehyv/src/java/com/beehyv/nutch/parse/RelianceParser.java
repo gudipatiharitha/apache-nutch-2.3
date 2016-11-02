@@ -1,7 +1,6 @@
 package com.beehyv.nutch.parse;
 
-import com.beehyv.nectar.models.ETenant;
-import com.beehyv.nectar.utils.Utils;
+import com.beehyv.holmes.enums.ETenant;
 import org.apache.nutch.parse.Parse;
 import org.apache.nutch.storage.WebPage;
 
@@ -14,16 +13,16 @@ public class RelianceParser extends ProductParser {
     public RelianceParser() {
         super();
         tenantName = tenant.getName();
-
+//        productId = "snapdealKaptaan";
     }
 
 
     public Parse getParse(String url, WebPage page) {
-        try {
-            productId = Utils.getProductIdFromUrl(url, tenant);
-        } catch(ArrayIndexOutOfBoundsException e){
-            LOG.error("The wrong parser seems to be called !!!! ");
-        }
+//        try {
+////            productId = Utils.getProductIdFromUrl(url, tenant);
+//        } catch(ArrayIndexOutOfBoundsException e){
+//            LOG.error("The wrong parser seems to be called !!!! ");
+//        }
         type = ProductConstants.PAGE_TYPE_TENANT_PRODUCT;
         return super.getParse(url, page);
     }

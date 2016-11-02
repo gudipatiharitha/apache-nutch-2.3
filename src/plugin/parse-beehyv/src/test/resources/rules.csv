@@ -1,0 +1,9 @@
+domainId,tenantId,urlRegex,property,value,valueType,payloadKeys
+0,0,amazon,productId,xpath,xpath,
+0,2,(.*)www.snapdeal(.*),productId,html body div#content_wrapper input#pogId,selectorPath,
+0,0,(.*)amazon(.*)\/ask\/questions(.*),pageType,AMAZON_FAQ,text,
+0,0,(.*)amazon(.*)\/s\/ref(.*),pageType,AMAZON_SEARCH,text,
+0,0,(.*)amazon(?!(\.in\/s\/ref))(?!(.*)(ask\/questions)),pageType,AMAZON_PRODUCT,text,
+0,2,faq,pageType,SNAPDEAL_FAQ,text,
+0,2,search,pageType,SNAPDEAL_SEARCH,text,
+0,2,(.*)www.snapdeal(.*),pageType,SNAPDEAL_PRODUCT,text,

@@ -13,8 +13,11 @@
 	<library name="document-ingestor-0.0.1-SNAPSHOT.jar"/>
 	<library name="domain-specific-util-0.0.1-SNAPSHOT.jar"/>
 	<library name="productpage-extraction-0.0.1-SNAPSHOT.jar"/>
+	<library name="ingestion-model-0.0.1-SNAPSHOT.jar"/>
     <library name="tagsoup-1.2.jar" />
+    <library name="super-csv-2.4.0.jar" />
     <library name="parse-html.jar"/>
+    <library name="pdfbox-2.0.3.jar"/>
 
     </runtime>
 

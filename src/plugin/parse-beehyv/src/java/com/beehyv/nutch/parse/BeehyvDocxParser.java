@@ -1,15 +1,12 @@
 package com.beehyv.nutch.parse;
 
+import com.beehyv.holmes.enums.PageTypeEnum;
+import com.beehyv.nectar.extractor.AbstractExtractor;
 import com.beehyv.nectar.extractor.DocExtractor;
 import com.beehyv.nectar.extractor.DocxExtractor;
-import com.beehyv.nectar.models.DocumentContent;
-import com.beehyv.nectar.models.Paragraph;
-import com.beehyv.nectar.models.json.JSONDocumentContent;
-import com.beehyv.nectar.utils.DocumentContentMapper;
-import org.apache.commons.collections.CollectionUtils;
+import com.beehyv.nectar.models.information.InfoNode;
 import org.apache.geronimo.mail.util.StringBufferOutputStream;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.http.util.TextUtils;
 import org.apache.nutch.parse.*;
 import org.apache.nutch.storage.ParseStatus;
 import org.apache.nutch.storage.WebPage;
@@ -48,37 +45,40 @@ public class BeehyvDocxParser implements Parser {
 
         ByteBuffer raw = page.getContent();
         ByteArrayInputStream bis = new ByteArrayInputStream(raw.array());
-        DocumentContent documentContent = null;
+        InfoNode documentContent = null;
+        AbstractExtractor extractor = null;
 
         switch (mimeType) {
             case DOC_TYPE:
                 // uses docExtractor
-                DocExtractor docExtractor = new DocExtractor();
-                documentContent = docExtractor.extract(bis);
+                extractor = new DocExtractor();
                 break;
             case DOCX_TYPE:
                 // uses docxExtractor
-                DocxExtractor docxExtractor = new DocxExtractor();
-                documentContent = docxExtractor.extract(bis);
+                extractor = new DocxExtractor();
+                break;
+            default:
+                extractor = new DocxExtractor();
                 break;
         }
 
-        documentContent.setSourceURL(url);
-        JSONDocumentContent jsonDocumentContent = DocumentContentMapper.getJSONMap(documentContent);
+        documentContent = extractor.extract(bis, PageTypeEnum.DEFAULT);
+
         ObjectMapper mapper = new ObjectMapper();
         StringBuffer out = new StringBuffer("");
         try {
-            mapper.writeValue(new StringBufferOutputStream(out), jsonDocumentContent);
+            mapper.writeValue(new StringBufferOutputStream(out), documentContent);
         } catch(IOException e) {
             LOG.error(e.getMessage(),e);
         }
         page.getMetadata().put("json", ByteBuffer.wrap(out.toString().getBytes()));
-        Outlink[] outlinks;
-        if (!TextUtils.isEmpty(documentContent.getRawContent()))
-            outlinks = OutlinkExtractor.getOutlinks(documentContent.getRawContent(), getConf());
-        else outlinks = new Outlink[0];
+        // we do not want any outlinks
+        Outlink[] outlinks = new Outlink[0];
+//        if (!TextUtils.isEmpty(documentContent.getRawContent()))
+//            outlinks = OutlinkExtractor.getOutlinks(documentContent.getRawContent(), getConf());
+//        else outlinks = new Outlink[0];
         ParseStatus status = ParseStatusUtils.STATUS_SUCCESS;
-        return new Parse(documentContent.getRawContent(), jsonDocumentContent.getTitle(), outlinks, status);
+        return new Parse(documentContent.getContent(), documentContent.getMetadata().get("title"), outlinks, status);
     }
 
     @Override

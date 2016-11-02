@@ -17,24 +17,14 @@
 
 package com.beehyv.nutch.indexwriter.elastic;
 
-import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.util.*;
-
-import com.beehyv.nectar.models.json.*;
-import com.fasterxml.jackson.core.JsonGenerationException;
+import com.beehyv.holmes.EsUtil;
+import com.beehyv.holmes.GenericDocumentInsertor;
+import com.beehyv.nectar.models.information.InfoNode;
 import org.apache.commons.lang.StringUtils;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.http.util.TextUtils;
 import org.apache.nutch.indexer.IndexWriter;
 import org.apache.nutch.indexer.NutchDocument;
-import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.codehaus.jackson.type.TypeReference;
 import org.elasticsearch.ElasticsearchException;
 import org.elasticsearch.action.ListenableActionFuture;
 import org.elasticsearch.action.bulk.BulkItemResponse;
@@ -43,16 +33,19 @@ import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.delete.DeleteRequestBuilder;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.client.Client;
-import org.elasticsearch.client.IndicesAdminClient;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.common.settings.Settings.Builder;
 import org.elasticsearch.common.transport.InetSocketTransportAddress;
 import org.elasticsearch.node.Node;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.net.InetAddress;
+
+import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 /**
  */
@@ -125,151 +118,48 @@ public class BeehyvIndexWriter implements IndexWriter {
         LOG.info("host:port:cluster" + host + ":" + port + ":" + clusterName);
 
         bulk = client.prepareBulk();
-        defaultIndex = job.get(BeehyvElasticConstants.INDEX, "src/bin/nutch");
+        defaultIndex = job.get(BeehyvElasticConstants.INDEX, "elastic.index");
         LOG.info("defaultIndex" + defaultIndex);
         maxBulkDocs = job.getInt(BeehyvElasticConstants.MAX_BULK_DOCS,
                 DEFAULT_MAX_BULK_DOCS);
         maxBulkLength = job.getInt(BeehyvElasticConstants.MAX_BULK_LENGTH,
                 DEFAULT_MAX_BULK_LENGTH);
         LOG.info("Checking for Index");
-        createIndexWithMappings(defaultIndex);
-    }
-
-    // todo: where should we check for index
-    private void createIndexWithMappings(String index) throws IOException{
-        IndicesAdminClient indicesAdminClient = client.admin().indices();
-        boolean exists = indicesAdminClient
-                .prepareExists(index)
-                .get().isExists();
-        if (!exists) {
-            // create index
-            indicesAdminClient.prepareCreate(index).get();
-            // add mappings
-            // not able to get from resources
-            File mappingsJson = new File("/home/kapil/IdeaProjects/apache-nutch-2.3/src/plugin/indexer-beehyv/src/resources/mappings.json");
-            Map<String, Object> map = mapper.readValue(
-                    mappingsJson,
-                    new TypeReference<Map<String, Object>>() {
-                    });
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                String type = entry.getKey();
-                String source = null;
-                try {
-                    source = new JSONObject(entry.getValue().toString()).toString();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    LOG.info("Could not get json mappings for type: " + type);
-                }
-                indicesAdminClient.preparePutMapping(index)
-                        .setType(type)
-                        .setSource(source)
-                        .get();
-            }
+        if (!EsUtil.checkIfIndexExists(client, defaultIndex)) {
+            EsUtil.createIndexWithSettingsAndMappings(client, defaultIndex, EsUtil.ANALYZER_SETTINGS, EsUtil.getMappings());
             LOG.info("Created the Index with Mappings");
         }
-    }
-
-    private List<IndexRequestBuilder> insertAttributesAndSections(JSONDocumentContent content, String parentPageId) throws JsonMappingException, JsonGenerationException, IOException {
-        List<IndexRequestBuilder> list = new ArrayList<IndexRequestBuilder>();
-        List attributes = content.getAttributes();
-        if (attributes != null) {
-            Iterator sections = attributes.iterator();
-
-            label52:
-            while (true) {
-                KeyValueRow currAttr;
-                do {
-                    if (!sections.hasNext()) {
-                        LOG.debug("Inserted attributes for parent-id: " + parentPageId);
-                        break label52;
-                    }
-
-                    currAttr = (KeyValueRow) sections.next();
-                } while (TextUtils.isEmpty(currAttr.getKey()) && TextUtils.isEmpty(currAttr.getValue()));
-                currAttr.setSourceUrl(content.getSourceURL());
-                //this.client.insertElasticSearchDocWithParent("attribute", this.mapper.writeValueAsString(currAttr), parentPageId, "reliance");
-                IndexRequestBuilder request = client.prepareIndex(defaultIndex, "attribute")
-                        .setSource(this.mapper.writeValueAsString(currAttr)).setParent(parentPageId);
-
-                list.add(request);
-            }
-        }
-
-        List sections1 = content.getSections();
-        if (sections1 != null) {
-            Iterator currAttr1 = sections1.iterator();
-
-            while (true) {
-                Section currSec;
-                ParaSection paraSection;
-                label36:
-                do {
-                    while (currAttr1.hasNext()) {
-                        currSec = (Section) currAttr1.next();
-                        if (currSec instanceof ParaSection) {
-                            paraSection = (ParaSection) currSec;
-                            continue label36;
-                        }
-
-                        LOG.debug("ignored section which is not a para section");
-                    }
-
-                    LOG.debug("Inserted sections (paragraphs) for parent-id: " + parentPageId);
-                    return list;
-                } while (TextUtils.isEmpty(paraSection.getHeading()) && paraSection.getParagraphs() == null);
-                currSec.setSourceUrl(content.getSourceURL());
-                //this.client.insertElasticSearchDocWithParent("section", this.mapper.writeValueAsString(currSec), parentPageId, "reliance");
-                IndexRequestBuilder request = client.prepareIndex(defaultIndex, "section")
-                        .setSource(this.mapper.writeValueAsString(currSec)).setParent(parentPageId);
-                list.add(request);
-            }
-        }
-        return list;
     }
 
     @Override
     public void write(NutchDocument doc) throws IOException {
         LOG.info("BeehyvElasticIndexWriter : write");
-        String id = (String) doc.getFieldValue("id");
-        String type = doc.getDocumentMeta().get("type");
-        if (type == null) type = "doc";
-        IndexRequestBuilder request = client.prepareIndex(defaultIndex, type, id);
+//        Metadata metadata = doc.getDocumentMeta();
 
-        Map<String, Object> source = new HashMap<String, Object>();
-
-        // Loop through all fields of this doc
-        for (String fieldName : doc.getFieldNames()) {
-            if (doc.getFieldValues(fieldName).size() > 1) {
-                source.put(fieldName, doc.getFieldValue(fieldName));
-                // Loop through the values to keep track of the size of this document
-                for (Object value : doc.getFieldValues(fieldName)) {
-                    bulkLength += value.toString().length();
-                }
-            } else {
-                if (fieldName.equals("json")) {
-                    ObjectMapper mapper = new ObjectMapper();
-                    //TODO deserialize and then put to ES index
-                    String fieldValue = doc.getFieldValue(fieldName);
-
-                    JSONDocumentContent content = (JSONDocumentContent) mapper.readValue(fieldValue, JSONDocumentContent.class);
-                    List<IndexRequestBuilder> list = insertAttributesAndSections(content, id);
-                    for (IndexRequestBuilder jsonrequest : list) {
-                        // Add this indexing request to a bulk request
-                        bulk.add(jsonrequest);
-                        indexedDocs++;
-                        bulkDocs++;
-                    }
-                } else {
-                    source.put(fieldName, doc.getFieldValue(fieldName));
-                }
-                bulkLength += doc.getFieldValue(fieldName).toString().length();
-            }
+        // first add index request for the parent node with ID as it source Url (something unique)
+        // TODO: do we want to change this ID to something else bases on tenant id
+        // TODO: int tenantId = doc.getDocumentMeta().get("tenantId"); and then
+        // TODO: based on this tenant id we can set the unique id for the parent node
+//        String id = metadata.get(BeehyvElasticConstants.FLD_SOURCE_URL);
+        String jsonContent = doc.getFieldValue("json");
+        InfoNode content = mapper.readValue(jsonContent, InfoNode.class);
+        String id = content.getMetadata().get(BeehyvElasticConstants.FLD_SOURCE_URL);
+        GenericDocumentInsertor documentInsertor = new GenericDocumentInsertor(client);
+        for (IndexRequestBuilder indexingRequest: documentInsertor.insertGenericDocuments(defaultIndex, id, content)) {
+            bulk.add(indexingRequest);
+            indexedDocs++;
+            bulkDocs++;
         }
-        request.setSource(source);
-        // Add this indexing request to a bulk request
-        bulk.add(request);
-        indexedDocs++;
-        bulkDocs++;
+//        Map<String, String> esMetadata = parentNode.getMetadata();
+//        // Loop through all the metadata fields of this doc and
+//        // add more metadata that was fetched during parse
+//        for (String meta: metadata.names()) {
+//            esMetadata.put(meta, metadata.get(meta));
+//            bulkLength += metadata.get(meta).length();
+//        }
+//        parentNodeRequest.setSource(documentNode);
+//        bulk.add(parentNodeRequest);
+        bulkLength += jsonContent.length();
 
         if (bulkDocs >= maxBulkDocs || bulkLength >= maxBulkLength) {
             LOG.info("Processing bulk request [docs = " + bulkDocs + ", length = "
